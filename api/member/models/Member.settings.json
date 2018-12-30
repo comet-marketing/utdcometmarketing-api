@@ -3,7 +3,8 @@
   "collectionName": "member",
   "info": {
     "name": "member",
-    "description": "Members of Comet Marketing\n"
+    "description": "Members of Comet Marketing\n",
+    "mainField": "name"
   },
   "options": {
     "timestamps": true

@@ -3,7 +3,8 @@
   "collectionName": "contactmesssage",
   "info": {
     "name": "contactmesssage",
-    "description": "Message sent via contact form"
+    "description": "Message sent via contact form",
+    "mainField": "email"
   },
   "options": {
     "timestamps": true

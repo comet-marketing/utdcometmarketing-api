@@ -1,9 +1,10 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "project",
   "info": {
     "name": "project",
-    "description": "To be featured on the projects page"
+    "description": "To be featured on the projects page",
+    "mainField": "title"
   },
   "options": {
     "timestamps": true
