@@ -1,0 +1,60 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "project",
+    "description": "To be featured on the projects page"
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "default": "",
+      "type": "string"
+    },
+    "description": {
+      "default": "",
+      "type": "text"
+    },
+    "pictures": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "videos": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "featured": {
+      "default": false,
+      "type": "boolean"
+    },
+    "year": {
+      "default": "",
+      "type": "integer"
+    },
+    "members": {
+      "collection": "member",
+      "dominant": true,
+      "via": "projects"
+    },
+    "additionalMedia": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "partners": {
+      "default": "",
+      "type": "text"
+    },
+    "slug": {
+      "type": "string",
+      "configurable": false
+    }
+  }
+}

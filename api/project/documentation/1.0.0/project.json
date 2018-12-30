@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/posts": {
+    "/projects": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Post"
+                    "$ref": "#/components/schemas/Project"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Post"
+          "Project"
         ],
         "parameters": [
           {
@@ -175,7 +175,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Post"
+                  "$ref": "#/components/schemas/Project"
                 }
               }
             }
@@ -213,7 +213,7 @@
         },
         "summary": "",
         "tags": [
-          "Post"
+          "Project"
         ],
         "requestBody": {
           "description": "",
@@ -221,14 +221,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPost"
+                "$ref": "#/components/schemas/NewProject"
               }
             }
           }
         }
       }
     },
-    "/posts/count": {
+    "/projects/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -280,12 +280,12 @@
         },
         "summary": "",
         "tags": [
-          "Post"
+          "Project"
         ],
         "parameters": []
       }
     },
-    "/posts/{slug}": {
+    "/projects/{slug}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -295,7 +295,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Post"
+                  "$ref": "#/components/schemas/Project"
                 }
               }
             }
@@ -333,7 +333,7 @@
         },
         "summary": "",
         "tags": [
-          "Post"
+          "Project"
         ],
         "parameters": [
           {
@@ -349,7 +349,7 @@
         ]
       }
     },
-    "/posts/{_id}": {
+    "/projects/{_id}": {
       "put": {
         "deprecated": false,
         "description": "Update a record",
@@ -359,7 +359,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Post"
+                  "$ref": "#/components/schemas/Project"
                 }
               }
             }
@@ -397,7 +397,7 @@
         },
         "summary": "",
         "tags": [
-          "Post"
+          "Project"
         ],
         "requestBody": {
           "description": "",
@@ -405,7 +405,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPost"
+                "$ref": "#/components/schemas/NewProject"
               }
             }
           }
@@ -471,7 +471,7 @@
         },
         "summary": "",
         "tags": [
-          "Post"
+          "Project"
         ],
         "parameters": [
           {
@@ -490,7 +490,7 @@
   },
   "components": {
     "schemas": {
-      "Post": {
+      "Project": {
         "required": [
           "id"
         ],
@@ -502,70 +502,228 @@
             "type": "string",
             "default": ""
           },
-          "body": {
+          "description": {
             "type": "string",
             "default": ""
+          },
+          "pictures": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "hash",
+                "mime",
+                "size",
+                "url",
+                "provider"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "hash": {
+                  "type": "string"
+                },
+                "sha256": {
+                  "type": "string"
+                },
+                "ext": {
+                  "type": "string"
+                },
+                "mime": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "public_id": {
+                  "type": "string"
+                },
+                "related": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "videos": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "hash",
+                "mime",
+                "size",
+                "url",
+                "provider"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "hash": {
+                  "type": "string"
+                },
+                "sha256": {
+                  "type": "string"
+                },
+                "ext": {
+                  "type": "string"
+                },
+                "mime": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "public_id": {
+                  "type": "string"
+                },
+                "related": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "featured": {
             "type": "boolean",
             "default": false
           },
-          "author": {
-            "required": [
-              "id",
-              "name"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "gradYear": {
-                "type": "integer"
-              },
-              "profilePicture": {
-                "type": "string"
-              },
-              "bio": {
-                "type": "string"
-              },
-              "website": {
-                "type": "string"
-              },
-              "posts": {
-                "type": "array",
-                "items": {
+          "year": {
+            "type": "integer",
+            "default": ""
+          },
+          "members": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "gradYear": {
+                  "type": "integer"
+                },
+                "profilePicture": {
+                  "type": "string"
+                },
+                "bio": {
+                  "type": "string"
+                },
+                "website": {
+                  "type": "string"
+                },
+                "posts": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "projects": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "role": {
+                  "type": "string"
+                },
+                "slug": {
                   "type": "string"
                 }
-              },
-              "projects": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "role": {
-                "type": "string"
-              },
-              "slug": {
-                "type": "string"
               }
             }
+          },
+          "additionalMedia": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "hash",
+                "mime",
+                "size",
+                "url",
+                "provider"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "hash": {
+                  "type": "string"
+                },
+                "sha256": {
+                  "type": "string"
+                },
+                "ext": {
+                  "type": "string"
+                },
+                "mime": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "public_id": {
+                  "type": "string"
+                },
+                "related": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "partners": {
+            "type": "string",
+            "default": ""
           },
           "slug": {
             "type": "string"
           }
         }
       },
-      "NewPost": {
+      "NewProject": {
         "properties": {
           "title": {
             "type": "string",
             "default": ""
           },
-          "body": {
+          "description": {
             "type": "string",
             "default": ""
           },
@@ -573,8 +731,19 @@
             "type": "boolean",
             "default": false
           },
-          "author": {
-            "type": "string"
+          "year": {
+            "type": "integer",
+            "default": ""
+          },
+          "members": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "partners": {
+            "type": "string",
+            "default": ""
           },
           "slug": {
             "type": "string"
@@ -585,7 +754,7 @@
   },
   "tags": [
     {
-      "name": "Post"
+      "name": "Project"
     }
   ]
 }

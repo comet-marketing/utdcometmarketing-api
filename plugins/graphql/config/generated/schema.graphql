@@ -1,3 +1,11 @@
+input createMemberInput {
+  data: MemberInput
+}
+
+type createMemberPayload {
+  member: Member
+}
+
 input createPostInput {
   data: PostInput
 }
@@ -6,20 +14,20 @@ type createPostPayload {
   post: Post
 }
 
+input createProjectInput {
+  data: ProjectInput
+}
+
+type createProjectPayload {
+  project: Project
+}
+
 input createRoleInput {
   data: RoleInput
 }
 
 type createRolePayload {
   role: UsersPermissionsRole
-}
-
-input createTagInput {
-  data: TagInput
-}
-
-type createTagPayload {
-  tag: Tag
 }
 
 input createUserInput {
@@ -35,6 +43,14 @@ The `DateTime` scalar represents a date and time following the ISO 8601 standard
 """
 scalar DateTime
 
+input deleteMemberInput {
+  where: InputID
+}
+
+type deleteMemberPayload {
+  member: Member
+}
+
 input deletePostInput {
   where: InputID
 }
@@ -43,20 +59,20 @@ type deletePostPayload {
   post: Post
 }
 
+input deleteProjectInput {
+  where: InputID
+}
+
+type deleteProjectPayload {
+  project: Project
+}
+
 input deleteRoleInput {
   where: InputID
 }
 
 type deleteRolePayload {
   role: UsersPermissionsRole
-}
-
-input deleteTagInput {
-  where: InputID
-}
-
-type deleteTagPayload {
-  tag: Tag
 }
 
 input deleteUserInput {
@@ -89,15 +105,139 @@ The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://
 """
 scalar JSON
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Post | createPostPayload | updatePostPayload | deletePostPayload | PostConnection | PostAggregator | PostGroupBy | PostConnection_id | PostConnectionCreatedAt | PostConnectionUpdatedAt | PostConnectionTitle | PostConnectionContent | PostConnectionCover | Tag | createTagPayload | updateTagPayload | deleteTagPayload | TagConnection | TagAggregator | TagGroupBy | TagConnection_id | TagConnectionCreatedAt | TagConnectionUpdatedAt | TagConnectionName | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileGroupBy | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionHash | UploadFileConnectionSha256 | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionProvider | UploadFileConnectionPublic_id | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole
+"""Members of Comet Marketing"""
+type Member {
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  gradYear: Int
+  profilePicture: UploadFile
+  bio: String
+  website: String
+  role: String
+  slug: String
+  posts(sort: String, limit: Int, start: Int, where: JSON): [Post]
+  projects(sort: String, limit: Int, start: Int, where: JSON): [Project]
+}
+
+type MemberAggregator {
+  count: Int
+  sum: MemberAggregatorSum
+  avg: MemberAggregatorAvg
+  min: MemberAggregatorMin
+  max: MemberAggregatorMax
+}
+
+type MemberAggregatorAvg {
+  gradYear: Float
+}
+
+type MemberAggregatorMax {
+  gradYear: Float
+}
+
+type MemberAggregatorMin {
+  gradYear: Float
+}
+
+type MemberAggregatorSum {
+  gradYear: Float
+}
+
+type MemberConnection {
+  values: [Member]
+  groupBy: MemberGroupBy
+  aggregate: MemberAggregator
+}
+
+type MemberConnection_id {
+  key: ID
+  connection: MemberConnection
+}
+
+type MemberConnectionBio {
+  key: String
+  connection: MemberConnection
+}
+
+type MemberConnectionCreatedAt {
+  key: DateTime
+  connection: MemberConnection
+}
+
+type MemberConnectionGradYear {
+  key: Int
+  connection: MemberConnection
+}
+
+type MemberConnectionName {
+  key: String
+  connection: MemberConnection
+}
+
+type MemberConnectionProfilePicture {
+  key: ID
+  connection: MemberConnection
+}
+
+type MemberConnectionRole {
+  key: String
+  connection: MemberConnection
+}
+
+type MemberConnectionSlug {
+  key: String
+  connection: MemberConnection
+}
+
+type MemberConnectionUpdatedAt {
+  key: DateTime
+  connection: MemberConnection
+}
+
+type MemberConnectionWebsite {
+  key: String
+  connection: MemberConnection
+}
+
+type MemberGroupBy {
+  _id: [MemberConnection_id]
+  createdAt: [MemberConnectionCreatedAt]
+  updatedAt: [MemberConnectionUpdatedAt]
+  name: [MemberConnectionName]
+  gradYear: [MemberConnectionGradYear]
+  profilePicture: [MemberConnectionProfilePicture]
+  bio: [MemberConnectionBio]
+  website: [MemberConnectionWebsite]
+  role: [MemberConnectionRole]
+  slug: [MemberConnectionSlug]
+}
+
+input MemberInput {
+  name: String!
+  gradYear: Int
+  profilePicture: ID
+  bio: String
+  website: String
+  posts: [ID]
+  projects: [ID]
+  role: String
+  slug: String
+}
+
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Member | createMemberPayload | updateMemberPayload | deleteMemberPayload | MemberConnection | MemberAggregator | MemberAggregatorSum | MemberAggregatorAvg | MemberAggregatorMin | MemberAggregatorMax | MemberGroupBy | MemberConnection_id | MemberConnectionCreatedAt | MemberConnectionUpdatedAt | MemberConnectionName | MemberConnectionGradYear | MemberConnectionProfilePicture | MemberConnectionBio | MemberConnectionWebsite | MemberConnectionRole | MemberConnectionSlug | Post | createPostPayload | updatePostPayload | deletePostPayload | PostConnection | PostAggregator | PostGroupBy | PostConnection_id | PostConnectionCreatedAt | PostConnectionUpdatedAt | PostConnectionTitle | PostConnectionBody | PostConnectionFeatured | PostConnectionAuthor | PostConnectionSlug | Project | createProjectPayload | updateProjectPayload | deleteProjectPayload | ProjectConnection | ProjectAggregator | ProjectAggregatorSum | ProjectAggregatorAvg | ProjectAggregatorMin | ProjectAggregatorMax | ProjectGroupBy | ProjectConnection_id | ProjectConnectionCreatedAt | ProjectConnectionUpdatedAt | ProjectConnectionTitle | ProjectConnectionDescription | ProjectConnectionFeatured | ProjectConnectionYear | ProjectConnectionPartners | ProjectConnectionSlug | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileGroupBy | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionHash | UploadFileConnectionSha256 | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionProvider | UploadFileConnectionPublic_id | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole
 
 type Mutation {
+  createMember(input: createMemberInput): createMemberPayload
+  updateMember(input: updateMemberInput): updateMemberPayload
+  deleteMember(input: deleteMemberInput): deleteMemberPayload
   createPost(input: createPostInput): createPostPayload
   updatePost(input: updatePostInput): updatePostPayload
   deletePost(input: deletePostInput): deletePostPayload
-  createTag(input: createTagInput): createTagPayload
-  updateTag(input: updateTagInput): updateTagPayload
-  deleteTag(input: deleteTagInput): deleteTagPayload
+  createProject(input: createProjectInput): createProjectPayload
+  updateProject(input: updateProjectInput): updateProjectPayload
+  deleteProject(input: deleteProjectInput): deleteProjectPayload
 
   """Create a new role"""
   createRole(input: createRoleInput): createRolePayload
@@ -113,14 +253,16 @@ type Mutation {
   upload(refId: ID, ref: String, source: String, file: Upload!): UploadFile!
 }
 
+"""A blog post"""
 type Post {
   _id: ID!
   createdAt: DateTime!
   updatedAt: DateTime!
   title: String
-  content: String
-  cover: UploadFile
-  tags(sort: String, limit: Int, start: Int, where: JSON): [Tag]
+  body: String
+  featured: Boolean
+  author: Member
+  slug: String
 }
 
 type PostAggregator {
@@ -138,18 +280,28 @@ type PostConnection_id {
   connection: PostConnection
 }
 
-type PostConnectionContent {
-  key: String
+type PostConnectionAuthor {
+  key: ID
   connection: PostConnection
 }
 
-type PostConnectionCover {
-  key: ID
+type PostConnectionBody {
+  key: String
   connection: PostConnection
 }
 
 type PostConnectionCreatedAt {
   key: DateTime
+  connection: PostConnection
+}
+
+type PostConnectionFeatured {
+  key: Boolean
+  connection: PostConnection
+}
+
+type PostConnectionSlug {
+  key: String
   connection: PostConnection
 }
 
@@ -168,24 +320,147 @@ type PostGroupBy {
   createdAt: [PostConnectionCreatedAt]
   updatedAt: [PostConnectionUpdatedAt]
   title: [PostConnectionTitle]
-  content: [PostConnectionContent]
-  cover: [PostConnectionCover]
+  body: [PostConnectionBody]
+  featured: [PostConnectionFeatured]
+  author: [PostConnectionAuthor]
+  slug: [PostConnectionSlug]
 }
 
 input PostInput {
   title: String
-  content: String
-  cover: ID
-  tags: [ID]
+  body: String
+  featured: Boolean
+  author: ID
+  slug: String
+}
+
+"""To be featured on the projects page"""
+type Project {
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  title: String
+  description: String
+  featured: Boolean
+  year: Int
+  partners: String
+  slug: String
+  pictures(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+  videos(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+  members(sort: String, limit: Int, start: Int, where: JSON): [Member]
+  additionalMedia(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+}
+
+type ProjectAggregator {
+  count: Int
+  sum: ProjectAggregatorSum
+  avg: ProjectAggregatorAvg
+  min: ProjectAggregatorMin
+  max: ProjectAggregatorMax
+}
+
+type ProjectAggregatorAvg {
+  year: Float
+}
+
+type ProjectAggregatorMax {
+  year: Float
+}
+
+type ProjectAggregatorMin {
+  year: Float
+}
+
+type ProjectAggregatorSum {
+  year: Float
+}
+
+type ProjectConnection {
+  values: [Project]
+  groupBy: ProjectGroupBy
+  aggregate: ProjectAggregator
+}
+
+type ProjectConnection_id {
+  key: ID
+  connection: ProjectConnection
+}
+
+type ProjectConnectionCreatedAt {
+  key: DateTime
+  connection: ProjectConnection
+}
+
+type ProjectConnectionDescription {
+  key: String
+  connection: ProjectConnection
+}
+
+type ProjectConnectionFeatured {
+  key: Boolean
+  connection: ProjectConnection
+}
+
+type ProjectConnectionPartners {
+  key: String
+  connection: ProjectConnection
+}
+
+type ProjectConnectionSlug {
+  key: String
+  connection: ProjectConnection
+}
+
+type ProjectConnectionTitle {
+  key: String
+  connection: ProjectConnection
+}
+
+type ProjectConnectionUpdatedAt {
+  key: DateTime
+  connection: ProjectConnection
+}
+
+type ProjectConnectionYear {
+  key: Int
+  connection: ProjectConnection
+}
+
+type ProjectGroupBy {
+  _id: [ProjectConnection_id]
+  createdAt: [ProjectConnectionCreatedAt]
+  updatedAt: [ProjectConnectionUpdatedAt]
+  title: [ProjectConnectionTitle]
+  description: [ProjectConnectionDescription]
+  featured: [ProjectConnectionFeatured]
+  year: [ProjectConnectionYear]
+  partners: [ProjectConnectionPartners]
+  slug: [ProjectConnectionSlug]
+}
+
+input ProjectInput {
+  title: String
+  description: String
+  pictures: [ID]
+  videos: [ID]
+  featured: Boolean
+  year: Int
+  members: [ID]
+  additionalMedia: [ID]
+  partners: String
+  slug: String
 }
 
 type Query {
+  member(id: ID!): Member
+  members(sort: String, limit: Int, start: Int, where: JSON): [Member]
+  membersConnection(sort: String, limit: Int, start: Int, where: JSON): MemberConnection
   post(id: ID!): Post
   posts(sort: String, limit: Int, start: Int, where: JSON): [Post]
   postsConnection(sort: String, limit: Int, start: Int, where: JSON): PostConnection
-  tag(id: ID!): Tag
-  tags(sort: String, limit: Int, start: Int, where: JSON): [Tag]
-  tagsConnection(sort: String, limit: Int, start: Int, where: JSON): TagConnection
+  project(id: ID!): Project
+  projects(sort: String, limit: Int, start: Int, where: JSON): [Project]
+  projectsConnection(sort: String, limit: Int, start: Int, where: JSON): ProjectConnection
   files(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
   filesConnection(sort: String, limit: Int, start: Int, where: JSON): UploadFileConnection
   role(id: ID!): UsersPermissionsRole
@@ -209,54 +484,13 @@ input RoleInput {
   users: [ID]
 }
 
-type Tag {
-  _id: ID!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  name: String
-  posts(sort: String, limit: Int, start: Int, where: JSON): [Post]
+input updateMemberInput {
+  where: InputID
+  data: MemberInput
 }
 
-type TagAggregator {
-  count: Int
-}
-
-type TagConnection {
-  values: [Tag]
-  groupBy: TagGroupBy
-  aggregate: TagAggregator
-}
-
-type TagConnection_id {
-  key: ID
-  connection: TagConnection
-}
-
-type TagConnectionCreatedAt {
-  key: DateTime
-  connection: TagConnection
-}
-
-type TagConnectionName {
-  key: String
-  connection: TagConnection
-}
-
-type TagConnectionUpdatedAt {
-  key: DateTime
-  connection: TagConnection
-}
-
-type TagGroupBy {
-  _id: [TagConnection_id]
-  createdAt: [TagConnectionCreatedAt]
-  updatedAt: [TagConnectionUpdatedAt]
-  name: [TagConnectionName]
-}
-
-input TagInput {
-  name: String
-  posts: [ID]
+type updateMemberPayload {
+  member: Member
 }
 
 input updatePostInput {
@@ -268,6 +502,15 @@ type updatePostPayload {
   post: Post
 }
 
+input updateProjectInput {
+  where: InputID
+  data: ProjectInput
+}
+
+type updateProjectPayload {
+  project: Project
+}
+
 input updateRoleInput {
   where: InputID
   data: RoleInput
@@ -275,15 +518,6 @@ input updateRoleInput {
 
 type updateRolePayload {
   role: UsersPermissionsRole
-}
-
-input updateTagInput {
-  where: InputID
-  data: TagInput
-}
-
-type updateTagPayload {
-  tag: Tag
 }
 
 input updateUserInput {

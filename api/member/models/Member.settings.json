@@ -1,0 +1,52 @@
+{
+  "connection": "default",
+  "collectionName": "member",
+  "info": {
+    "name": "member",
+    "description": "Members of Comet Marketing\n"
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "type": "string",
+      "required": true
+    },
+    "gradYear": {
+      "default": "",
+      "type": "integer"
+    },
+    "profilePicture": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "bio": {
+      "default": "",
+      "type": "text"
+    },
+    "website": {
+      "default": "",
+      "type": "string"
+    },
+    "posts": {
+      "collection": "post",
+      "via": "author"
+    },
+    "projects": {
+      "collection": "project",
+      "via": "members"
+    },
+    "role": {
+      "default": "Member",
+      "type": "string"
+    },
+    "slug": {
+      "type": "string",
+      "configurable": false
+    }
+  }
+}

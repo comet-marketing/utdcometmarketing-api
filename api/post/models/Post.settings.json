@@ -1,9 +1,10 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "post",
   "info": {
     "name": "post",
-    "description": ""
+    "description": "A blog post",
+    "mainField": "title"
   },
   "options": {
     "timestamps": true
@@ -13,19 +14,21 @@
       "default": "",
       "type": "string"
     },
-    "content": {
+    "body": {
       "default": "",
       "type": "text"
     },
-    "cover": {
-      "model": "file",
-      "via": "related",
-      "plugin": "upload",
-      "required": false
+    "featured": {
+      "default": false,
+      "type": "boolean"
     },
-    "tags": {
-      "collection": "tag",
+    "author": {
+      "model": "member",
       "via": "posts"
+    },
+    "slug": {
+      "type": "string",
+      "configurable": false
     }
   }
 }

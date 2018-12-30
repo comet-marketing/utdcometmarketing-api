@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Lifecycle callbacks for the `Post` model.
+ * Lifecycle callbacks for the `Project` model.
  */
 
 module.exports = {
@@ -30,7 +30,7 @@ module.exports = {
 
   // Before creating a value.
   // Fired before an `insert` query.
-  beforeCreate: async (model) => { 
+  beforeCreate: async (model) => {
     model.slug = model.title.toLowerCase()
       .replace(/\s+/g, '-')           // Replace spaces with -
       .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
@@ -54,8 +54,8 @@ module.exports = {
         .replace(/^-+/, '')             // Trim - from start of text
         .replace(/-+$/, '');            // Trim - from end of text
     }
-  },
-  
+  }
+
   // After updating a value.
   // Fired after an `update` query.
   // afterUpdate: async (model, result) => {},
