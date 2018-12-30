@@ -1,0 +1,29 @@
+{
+  "connection": "default",
+  "collectionName": "contactmesssage",
+  "info": {
+    "name": "contactmesssage",
+    "description": "Message sent via contact form"
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "email": {
+      "default": "",
+      "type": "email"
+    },
+    "message": {
+      "default": "",
+      "type": "text"
+    },
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "slug": {
+      "default": "",
+      "type": "string"
+    }
+  }
+}

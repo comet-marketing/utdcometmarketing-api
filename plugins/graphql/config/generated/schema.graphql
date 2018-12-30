@@ -1,3 +1,84 @@
+"""Message sent via contact form"""
+type Contactmesssage {
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  email: String
+  message: String
+  name: String
+  slug: String
+}
+
+type ContactmesssageAggregator {
+  count: Int
+}
+
+type ContactmesssageConnection {
+  values: [Contactmesssage]
+  groupBy: ContactmesssageGroupBy
+  aggregate: ContactmesssageAggregator
+}
+
+type ContactmesssageConnection_id {
+  key: ID
+  connection: ContactmesssageConnection
+}
+
+type ContactmesssageConnectionCreatedAt {
+  key: DateTime
+  connection: ContactmesssageConnection
+}
+
+type ContactmesssageConnectionEmail {
+  key: String
+  connection: ContactmesssageConnection
+}
+
+type ContactmesssageConnectionMessage {
+  key: String
+  connection: ContactmesssageConnection
+}
+
+type ContactmesssageConnectionName {
+  key: String
+  connection: ContactmesssageConnection
+}
+
+type ContactmesssageConnectionSlug {
+  key: String
+  connection: ContactmesssageConnection
+}
+
+type ContactmesssageConnectionUpdatedAt {
+  key: DateTime
+  connection: ContactmesssageConnection
+}
+
+type ContactmesssageGroupBy {
+  _id: [ContactmesssageConnection_id]
+  createdAt: [ContactmesssageConnectionCreatedAt]
+  updatedAt: [ContactmesssageConnectionUpdatedAt]
+  email: [ContactmesssageConnectionEmail]
+  message: [ContactmesssageConnectionMessage]
+  name: [ContactmesssageConnectionName]
+  slug: [ContactmesssageConnectionSlug]
+}
+
+input ContactmesssageInput {
+  email: String
+  message: String
+  name: String
+  slug: String
+}
+
+input createContactmesssageInput {
+  data: ContactmesssageInput
+}
+
+type createContactmesssagePayload {
+  contactmesssage: Contactmesssage
+}
+
 input createMemberInput {
   data: MemberInput
 }
@@ -42,6 +123,14 @@ type createUserPayload {
 The `DateTime` scalar represents a date and time following the ISO 8601 standard
 """
 scalar DateTime
+
+input deleteContactmesssageInput {
+  where: InputID
+}
+
+type deleteContactmesssagePayload {
+  contactmesssage: Contactmesssage
+}
 
 input deleteMemberInput {
   where: InputID
@@ -226,9 +315,12 @@ input MemberInput {
   slug: String
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Member | createMemberPayload | updateMemberPayload | deleteMemberPayload | MemberConnection | MemberAggregator | MemberAggregatorSum | MemberAggregatorAvg | MemberAggregatorMin | MemberAggregatorMax | MemberGroupBy | MemberConnection_id | MemberConnectionCreatedAt | MemberConnectionUpdatedAt | MemberConnectionName | MemberConnectionGradYear | MemberConnectionProfilePicture | MemberConnectionBio | MemberConnectionWebsite | MemberConnectionRole | MemberConnectionSlug | Post | createPostPayload | updatePostPayload | deletePostPayload | PostConnection | PostAggregator | PostGroupBy | PostConnection_id | PostConnectionCreatedAt | PostConnectionUpdatedAt | PostConnectionTitle | PostConnectionBody | PostConnectionFeatured | PostConnectionAuthor | PostConnectionSlug | Project | createProjectPayload | updateProjectPayload | deleteProjectPayload | ProjectConnection | ProjectAggregator | ProjectAggregatorSum | ProjectAggregatorAvg | ProjectAggregatorMin | ProjectAggregatorMax | ProjectGroupBy | ProjectConnection_id | ProjectConnectionCreatedAt | ProjectConnectionUpdatedAt | ProjectConnectionTitle | ProjectConnectionDescription | ProjectConnectionFeatured | ProjectConnectionYear | ProjectConnectionPartners | ProjectConnectionSlug | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileGroupBy | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionHash | UploadFileConnectionSha256 | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionProvider | UploadFileConnectionPublic_id | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Contactmesssage | createContactmesssagePayload | updateContactmesssagePayload | deleteContactmesssagePayload | ContactmesssageConnection | ContactmesssageAggregator | ContactmesssageGroupBy | ContactmesssageConnection_id | ContactmesssageConnectionCreatedAt | ContactmesssageConnectionUpdatedAt | ContactmesssageConnectionEmail | ContactmesssageConnectionMessage | ContactmesssageConnectionName | ContactmesssageConnectionSlug | Member | createMemberPayload | updateMemberPayload | deleteMemberPayload | MemberConnection | MemberAggregator | MemberAggregatorSum | MemberAggregatorAvg | MemberAggregatorMin | MemberAggregatorMax | MemberGroupBy | MemberConnection_id | MemberConnectionCreatedAt | MemberConnectionUpdatedAt | MemberConnectionName | MemberConnectionGradYear | MemberConnectionProfilePicture | MemberConnectionBio | MemberConnectionWebsite | MemberConnectionRole | MemberConnectionSlug | Post | createPostPayload | updatePostPayload | deletePostPayload | PostConnection | PostAggregator | PostGroupBy | PostConnection_id | PostConnectionCreatedAt | PostConnectionUpdatedAt | PostConnectionTitle | PostConnectionBody | PostConnectionFeatured | PostConnectionAuthor | PostConnectionSlug | Project | createProjectPayload | updateProjectPayload | deleteProjectPayload | ProjectConnection | ProjectAggregator | ProjectAggregatorSum | ProjectAggregatorAvg | ProjectAggregatorMin | ProjectAggregatorMax | ProjectGroupBy | ProjectConnection_id | ProjectConnectionCreatedAt | ProjectConnectionUpdatedAt | ProjectConnectionTitle | ProjectConnectionDescription | ProjectConnectionFeatured | ProjectConnectionYear | ProjectConnectionPartners | ProjectConnectionSlug | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileGroupBy | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionHash | UploadFileConnectionSha256 | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionProvider | UploadFileConnectionPublic_id | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole
 
 type Mutation {
+  createContactmesssage(input: createContactmesssageInput): createContactmesssagePayload
+  updateContactmesssage(input: updateContactmesssageInput): updateContactmesssagePayload
+  deleteContactmesssage(input: deleteContactmesssageInput): deleteContactmesssagePayload
   createMember(input: createMemberInput): createMemberPayload
   updateMember(input: updateMemberInput): updateMemberPayload
   deleteMember(input: deleteMemberInput): deleteMemberPayload
@@ -452,6 +544,9 @@ input ProjectInput {
 }
 
 type Query {
+  contactmesssage(id: ID!): Contactmesssage
+  contactmesssages(sort: String, limit: Int, start: Int, where: JSON): [Contactmesssage]
+  contactmesssagesConnection(sort: String, limit: Int, start: Int, where: JSON): ContactmesssageConnection
   member(id: ID!): Member
   members(sort: String, limit: Int, start: Int, where: JSON): [Member]
   membersConnection(sort: String, limit: Int, start: Int, where: JSON): MemberConnection
@@ -482,6 +577,15 @@ input RoleInput {
   type: String
   permissions: [ID]
   users: [ID]
+}
+
+input updateContactmesssageInput {
+  where: InputID
+  data: ContactmesssageInput
+}
+
+type updateContactmesssagePayload {
+  contactmesssage: Contactmesssage
 }
 
 input updateMemberInput {
