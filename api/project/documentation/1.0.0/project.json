@@ -626,10 +626,10 @@
                 "name": {
                   "type": "string"
                 },
-                "gradYear": {
+                "gradyear": {
                   "type": "integer"
                 },
-                "profilePicture": {
+                "profilepicture": {
                   "type": "string"
                 },
                 "bio": {
@@ -659,7 +659,7 @@
               }
             }
           },
-          "additionalMedia": {
+          "additionalmedia": {
             "type": "array",
             "items": {
               "required": [

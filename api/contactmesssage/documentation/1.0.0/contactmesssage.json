@@ -507,10 +507,6 @@
           "name": {
             "type": "string",
             "default": ""
-          },
-          "slug": {
-            "type": "string",
-            "default": ""
           }
         }
       },
@@ -525,10 +521,6 @@
             "default": ""
           },
           "name": {
-            "type": "string",
-            "default": ""
-          },
-          "slug": {
             "type": "string",
             "default": ""
           }

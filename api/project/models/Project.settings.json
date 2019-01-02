@@ -43,7 +43,7 @@
       "dominant": true,
       "via": "projects"
     },
-    "additionalMedia": {
+    "additionalmedia": {
       "collection": "file",
       "via": "related",
       "plugin": "upload",

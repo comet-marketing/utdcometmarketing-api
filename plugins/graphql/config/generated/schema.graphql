@@ -6,7 +6,6 @@ type Contactmesssage {
   email: String
   message: String
   name: String
-  slug: String
 }
 
 type ContactmesssageAggregator {
@@ -44,11 +43,6 @@ type ContactmesssageConnectionName {
   connection: ContactmesssageConnection
 }
 
-type ContactmesssageConnectionSlug {
-  key: String
-  connection: ContactmesssageConnection
-}
-
 type ContactmesssageConnectionUpdatedAt {
   key: DateTime
   connection: ContactmesssageConnection
@@ -61,14 +55,12 @@ type ContactmesssageGroupBy {
   email: [ContactmesssageConnectionEmail]
   message: [ContactmesssageConnectionMessage]
   name: [ContactmesssageConnectionName]
-  slug: [ContactmesssageConnectionSlug]
 }
 
 input ContactmesssageInput {
   email: String
   message: String
   name: String
-  slug: String
 }
 
 input createContactmesssageInput {
@@ -200,8 +192,8 @@ type Member {
   createdAt: DateTime!
   updatedAt: DateTime!
   name: String!
-  gradYear: Int
-  profilePicture: UploadFile
+  gradyear: Int
+  profilepicture: UploadFile
   bio: String
   website: String
   role: String
@@ -219,19 +211,19 @@ type MemberAggregator {
 }
 
 type MemberAggregatorAvg {
-  gradYear: Float
+  gradyear: Float
 }
 
 type MemberAggregatorMax {
-  gradYear: Float
+  gradyear: Float
 }
 
 type MemberAggregatorMin {
-  gradYear: Float
+  gradyear: Float
 }
 
 type MemberAggregatorSum {
-  gradYear: Float
+  gradyear: Float
 }
 
 type MemberConnection {
@@ -255,7 +247,7 @@ type MemberConnectionCreatedAt {
   connection: MemberConnection
 }
 
-type MemberConnectionGradYear {
+type MemberConnectionGradyear {
   key: Int
   connection: MemberConnection
 }
@@ -265,7 +257,7 @@ type MemberConnectionName {
   connection: MemberConnection
 }
 
-type MemberConnectionProfilePicture {
+type MemberConnectionProfilepicture {
   key: ID
   connection: MemberConnection
 }
@@ -295,8 +287,8 @@ type MemberGroupBy {
   createdAt: [MemberConnectionCreatedAt]
   updatedAt: [MemberConnectionUpdatedAt]
   name: [MemberConnectionName]
-  gradYear: [MemberConnectionGradYear]
-  profilePicture: [MemberConnectionProfilePicture]
+  gradyear: [MemberConnectionGradyear]
+  profilepicture: [MemberConnectionProfilepicture]
   bio: [MemberConnectionBio]
   website: [MemberConnectionWebsite]
   role: [MemberConnectionRole]
@@ -305,8 +297,8 @@ type MemberGroupBy {
 
 input MemberInput {
   name: String!
-  gradYear: Int
-  profilePicture: ID
+  gradyear: Int
+  profilepicture: ID
   bio: String
   website: String
   posts: [ID]
@@ -315,7 +307,7 @@ input MemberInput {
   slug: String
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Contactmesssage | createContactmesssagePayload | updateContactmesssagePayload | deleteContactmesssagePayload | ContactmesssageConnection | ContactmesssageAggregator | ContactmesssageGroupBy | ContactmesssageConnection_id | ContactmesssageConnectionCreatedAt | ContactmesssageConnectionUpdatedAt | ContactmesssageConnectionEmail | ContactmesssageConnectionMessage | ContactmesssageConnectionName | ContactmesssageConnectionSlug | Member | createMemberPayload | updateMemberPayload | deleteMemberPayload | MemberConnection | MemberAggregator | MemberAggregatorSum | MemberAggregatorAvg | MemberAggregatorMin | MemberAggregatorMax | MemberGroupBy | MemberConnection_id | MemberConnectionCreatedAt | MemberConnectionUpdatedAt | MemberConnectionName | MemberConnectionGradYear | MemberConnectionProfilePicture | MemberConnectionBio | MemberConnectionWebsite | MemberConnectionRole | MemberConnectionSlug | Post | createPostPayload | updatePostPayload | deletePostPayload | PostConnection | PostAggregator | PostGroupBy | PostConnection_id | PostConnectionCreatedAt | PostConnectionUpdatedAt | PostConnectionTitle | PostConnectionBody | PostConnectionFeatured | PostConnectionAuthor | PostConnectionSlug | Project | createProjectPayload | updateProjectPayload | deleteProjectPayload | ProjectConnection | ProjectAggregator | ProjectAggregatorSum | ProjectAggregatorAvg | ProjectAggregatorMin | ProjectAggregatorMax | ProjectGroupBy | ProjectConnection_id | ProjectConnectionCreatedAt | ProjectConnectionUpdatedAt | ProjectConnectionTitle | ProjectConnectionDescription | ProjectConnectionFeatured | ProjectConnectionYear | ProjectConnectionPartners | ProjectConnectionSlug | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileGroupBy | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionHash | UploadFileConnectionSha256 | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionProvider | UploadFileConnectionPublic_id | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Contactmesssage | createContactmesssagePayload | updateContactmesssagePayload | deleteContactmesssagePayload | ContactmesssageConnection | ContactmesssageAggregator | ContactmesssageGroupBy | ContactmesssageConnection_id | ContactmesssageConnectionCreatedAt | ContactmesssageConnectionUpdatedAt | ContactmesssageConnectionEmail | ContactmesssageConnectionMessage | ContactmesssageConnectionName | Member | createMemberPayload | updateMemberPayload | deleteMemberPayload | MemberConnection | MemberAggregator | MemberAggregatorSum | MemberAggregatorAvg | MemberAggregatorMin | MemberAggregatorMax | MemberGroupBy | MemberConnection_id | MemberConnectionCreatedAt | MemberConnectionUpdatedAt | MemberConnectionName | MemberConnectionGradyear | MemberConnectionProfilepicture | MemberConnectionBio | MemberConnectionWebsite | MemberConnectionRole | MemberConnectionSlug | Post | createPostPayload | updatePostPayload | deletePostPayload | PostConnection | PostAggregator | PostGroupBy | PostConnection_id | PostConnectionCreatedAt | PostConnectionUpdatedAt | PostConnectionTitle | PostConnectionBody | PostConnectionFeatured | PostConnectionAuthor | PostConnectionSlug | Project | createProjectPayload | updateProjectPayload | deleteProjectPayload | ProjectConnection | ProjectAggregator | ProjectAggregatorSum | ProjectAggregatorAvg | ProjectAggregatorMin | ProjectAggregatorMax | ProjectGroupBy | ProjectConnection_id | ProjectConnectionCreatedAt | ProjectConnectionUpdatedAt | ProjectConnectionTitle | ProjectConnectionDescription | ProjectConnectionFeatured | ProjectConnectionYear | ProjectConnectionPartners | ProjectConnectionSlug | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileGroupBy | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionHash | UploadFileConnectionSha256 | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionProvider | UploadFileConnectionPublic_id | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole
 
 type Mutation {
   createContactmesssage(input: createContactmesssageInput): createContactmesssagePayload
@@ -440,7 +432,7 @@ type Project {
   pictures(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
   videos(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
   members(sort: String, limit: Int, start: Int, where: JSON): [Member]
-  additionalMedia(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+  additionalmedia(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
 }
 
 type ProjectAggregator {
@@ -538,7 +530,7 @@ input ProjectInput {
   featured: Boolean
   year: Int
   members: [ID]
-  additionalMedia: [ID]
+  additionalmedia: [ID]
   partners: String
   slug: String
 }

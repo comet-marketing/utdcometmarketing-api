@@ -503,11 +503,11 @@
             "type": "string",
             "default": ""
           },
-          "gradYear": {
+          "gradyear": {
             "type": "integer",
             "default": ""
           },
-          "profilePicture": {
+          "profilepicture": {
             "required": [
               "id",
               "name",
@@ -629,7 +629,7 @@
                     "type": "string"
                   }
                 },
-                "additionalMedia": {
+                "additionalmedia": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -662,7 +662,7 @@
             "type": "string",
             "default": ""
           },
-          "gradYear": {
+          "gradyear": {
             "type": "integer",
             "default": ""
           },
