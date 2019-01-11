@@ -62,13 +62,15 @@ module.exports = {
       ctx.request.body.name = name;
       ctx.request.body.message = message;
 
-      await strapi.plugins['email'].services.email.send({
+      let s = await strapi.plugins['email'].services.email.send({
         to: 'utdcometmarketing@gmail.com',
         from: `${ctx.request.body.email}`,
         replyTo: 'no-reply@utdcometmarketing.com',
         subject: `Contact Form message from ${name}`,
         text: message
       });
+
+      console.log(s);
   
       return strapi.services.contactmesssage.add(ctx.request.body);
     }
