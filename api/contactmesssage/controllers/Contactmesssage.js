@@ -53,7 +53,28 @@ module.exports = {
    */
 
   create: async (ctx) => {
-    return strapi.services.contactmesssage.add(ctx.request.body);
+    let emailValid = ctx.request.body.email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+    
+    if (emailValid) {
+      let name = ctx.request.body.name.replace(/[^a-z0-9áéíóúñü \.,_-]/gim, "").trim();
+      let message = ctx.request.body.message.replace(/[^a-z0-9áéíóúñü \.,_-]/gim, "").trim();
+  
+      ctx.request.body.name = name;
+      ctx.request.body.message = message;
+
+      await strapi.plugins['email'].services.email.send({
+        to: 'utdcometmarketing@gmail.com',
+        from: `${ctx.request.body.email}`,
+        replyTo: 'no-reply@utdcometmarketing.com',
+        subject: `Contact Form message from ${name}`,
+        text: message
+      });
+  
+      return strapi.services.contactmesssage.add(ctx.request.body);
+    }
+    else {
+      return ctx.response.badRequest('Invalid email');
+    }
   },
 
   /**
