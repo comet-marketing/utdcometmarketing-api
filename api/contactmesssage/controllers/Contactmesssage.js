@@ -70,8 +70,6 @@ module.exports = {
         text: message,
         html: message
       });
-
-      console.log(s);
   
       return strapi.services.contactmesssage.add(ctx.request.body);
     }
