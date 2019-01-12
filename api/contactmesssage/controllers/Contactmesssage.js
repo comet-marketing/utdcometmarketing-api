@@ -1,5 +1,5 @@
 'use strict';
-
+const fetch = require('node-fetch');
 /**
  * Contactmesssage.js controller
  *
@@ -54,11 +54,16 @@ module.exports = {
 
   create: async (ctx) => {
     let emailValid = ctx.request.body.email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+    let secret = '6LeyIokUAAAAABINV6Fr0UMnb1JjwOhGZ539TY9b';
+    let score = await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${ctx.request.body.recaptchaScore}`, {
+      method: 'POST'
+    });
     
-    if (emailValid) {
+    let response = await score.json();
+    if (emailValid && response.success) {
       let name = ctx.request.body.name.replace(/[^a-z0-9áéíóúñü \.,_-]/gim, "").trim();
       let message = ctx.request.body.message.replace(/[^a-z0-9áéíóúñü \.,_-]/gim, "").trim();
-  
+    
       ctx.request.body.name = name;
       ctx.request.body.message = message;
 
