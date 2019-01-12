@@ -67,7 +67,8 @@ module.exports = {
         from: `${ctx.request.body.email}`,
         replyTo: 'no-reply@utdcometmarketing.com',
         subject: `Contact Form message from ${name}`,
-        text: message
+        text: message,
+        html: message
       });
 
       console.log(s);
