@@ -48,6 +48,18 @@
     "slug": {
       "type": "string",
       "configurable": false
+    },
+    "designproject": {
+      "collection": "designproject",
+      "via": "members"
+    },
+    "photoproject": {
+      "collection": "photoproject",
+      "via": "members"
+    },
+    "videoproject": {
+      "collection": "videoproject",
+      "via": "members"
     }
   }
 }

@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/designprojects",
+      "handler": "Designproject.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/designprojects/count",
+      "handler": "Designproject.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/designprojects/:_id",
+      "handler": "Designproject.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/designprojects",
+      "handler": "Designproject.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/designprojects/:_id",
+      "handler": "Designproject.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/designprojects/:_id",
+      "handler": "Designproject.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/videoprojects",
+      "handler": "Videoproject.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/videoprojects/count",
+      "handler": "Videoproject.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/videoprojects/:_id",
+      "handler": "Videoproject.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/videoprojects",
+      "handler": "Videoproject.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/videoprojects/:_id",
+      "handler": "Videoproject.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/videoprojects/:_id",
+      "handler": "Videoproject.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

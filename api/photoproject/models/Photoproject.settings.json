@@ -1,0 +1,39 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "photoproject",
+    "description": "projects involving multiple photographs"
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "default": "",
+      "type": "string"
+    },
+    "date": {
+      "default": "",
+      "type": "date"
+    },
+    "photos": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "description": {
+      "default": "",
+      "type": "text"
+    },
+    "featured": {
+      "default": false,
+      "type": "boolean"
+    },
+    "member": {
+      "collection": "member",
+      "via": "photoproject"
+    }
+  }
+}
