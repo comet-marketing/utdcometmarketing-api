@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/photoprojects",
+      "handler": "Photoproject.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/photoprojects/count",
+      "handler": "Photoproject.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/photoprojects/:slug",
+      "handler": "Photoproject.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/photoprojects",
+      "handler": "Photoproject.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/photoprojects/:_id",
+      "handler": "Photoproject.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/photoprojects/:_id",
+      "handler": "Photoproject.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

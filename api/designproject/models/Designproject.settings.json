@@ -1,0 +1,43 @@
+{
+  "connection": "default",
+  "collectionName": "designproject",
+  "info": {
+    "name": "designproject",
+    "description": "Projects involving graphic design, i.e. posters, flyers, logos, business cards"
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "default": "",
+      "type": "string"
+    },
+    "description": {
+      "default": "",
+      "type": "text"
+    },
+    "date": {
+      "default": "",
+      "type": "date"
+    },
+    "graphics": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "featured": {
+      "default": false,
+      "type": "boolean"
+    },
+    "members": {
+      "collection": "member",
+      "via": "designproject"
+    },
+    "slug": {
+      "default": "",
+      "type": "string"
+    }
+  }
+}

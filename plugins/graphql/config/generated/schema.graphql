@@ -71,12 +71,28 @@ type createContactmesssagePayload {
   contactmesssage: Contactmesssage
 }
 
+input createDesignprojectInput {
+  data: DesignprojectInput
+}
+
+type createDesignprojectPayload {
+  designproject: Designproject
+}
+
 input createMemberInput {
   data: MemberInput
 }
 
 type createMemberPayload {
   member: Member
+}
+
+input createPhotoprojectInput {
+  data: PhotoprojectInput
+}
+
+type createPhotoprojectPayload {
+  photoproject: Photoproject
 }
 
 input createPostInput {
@@ -111,6 +127,14 @@ type createUserPayload {
   user: UsersPermissionsUser
 }
 
+input createVideoprojectInput {
+  data: VideoprojectInput
+}
+
+type createVideoprojectPayload {
+  videoproject: Videoproject
+}
+
 """
 The `DateTime` scalar represents a date and time following the ISO 8601 standard
 """
@@ -124,12 +148,28 @@ type deleteContactmesssagePayload {
   contactmesssage: Contactmesssage
 }
 
+input deleteDesignprojectInput {
+  where: InputID
+}
+
+type deleteDesignprojectPayload {
+  designproject: Designproject
+}
+
 input deleteMemberInput {
   where: InputID
 }
 
 type deleteMemberPayload {
   member: Member
+}
+
+input deletePhotoprojectInput {
+  where: InputID
+}
+
+type deletePhotoprojectPayload {
+  photoproject: Photoproject
 }
 
 input deletePostInput {
@@ -162,6 +202,101 @@ input deleteUserInput {
 
 type deleteUserPayload {
   user: UsersPermissionsUser
+}
+
+input deleteVideoprojectInput {
+  where: InputID
+}
+
+type deleteVideoprojectPayload {
+  videoproject: Videoproject
+}
+
+"""
+Projects involving graphic design, i.e. posters, flyers, logos, business cards
+"""
+type Designproject {
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  title: String
+  description: String
+  date: DateTime
+  featured: Boolean
+  slug: String
+  graphics(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+  members(sort: String, limit: Int, start: Int, where: JSON): [Member]
+}
+
+type DesignprojectAggregator {
+  count: Int
+}
+
+type DesignprojectConnection {
+  values: [Designproject]
+  groupBy: DesignprojectGroupBy
+  aggregate: DesignprojectAggregator
+}
+
+type DesignprojectConnection_id {
+  key: ID
+  connection: DesignprojectConnection
+}
+
+type DesignprojectConnectionCreatedAt {
+  key: DateTime
+  connection: DesignprojectConnection
+}
+
+type DesignprojectConnectionDate {
+  key: DateTime
+  connection: DesignprojectConnection
+}
+
+type DesignprojectConnectionDescription {
+  key: String
+  connection: DesignprojectConnection
+}
+
+type DesignprojectConnectionFeatured {
+  key: Boolean
+  connection: DesignprojectConnection
+}
+
+type DesignprojectConnectionSlug {
+  key: String
+  connection: DesignprojectConnection
+}
+
+type DesignprojectConnectionTitle {
+  key: String
+  connection: DesignprojectConnection
+}
+
+type DesignprojectConnectionUpdatedAt {
+  key: DateTime
+  connection: DesignprojectConnection
+}
+
+type DesignprojectGroupBy {
+  _id: [DesignprojectConnection_id]
+  createdAt: [DesignprojectConnectionCreatedAt]
+  updatedAt: [DesignprojectConnectionUpdatedAt]
+  title: [DesignprojectConnectionTitle]
+  description: [DesignprojectConnectionDescription]
+  date: [DesignprojectConnectionDate]
+  featured: [DesignprojectConnectionFeatured]
+  slug: [DesignprojectConnectionSlug]
+}
+
+input DesignprojectInput {
+  title: String
+  description: String
+  date: DateTime
+  graphics: [ID]
+  featured: Boolean
+  members: [ID]
+  slug: String
 }
 
 input FileInput {
@@ -200,6 +335,9 @@ type Member {
   slug: String
   posts(sort: String, limit: Int, start: Int, where: JSON): [Post]
   projects(sort: String, limit: Int, start: Int, where: JSON): [Project]
+  designproject(sort: String, limit: Int, start: Int, where: JSON): [Designproject]
+  photoproject(sort: String, limit: Int, start: Int, where: JSON): [Photoproject]
+  videoproject(sort: String, limit: Int, start: Int, where: JSON): [Videoproject]
 }
 
 type MemberAggregator {
@@ -305,23 +443,35 @@ input MemberInput {
   projects: [ID]
   role: String
   slug: String
+  designproject: [ID]
+  photoproject: [ID]
+  videoproject: [ID]
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Contactmesssage | createContactmesssagePayload | updateContactmesssagePayload | deleteContactmesssagePayload | ContactmesssageConnection | ContactmesssageAggregator | ContactmesssageGroupBy | ContactmesssageConnection_id | ContactmesssageConnectionCreatedAt | ContactmesssageConnectionUpdatedAt | ContactmesssageConnectionEmail | ContactmesssageConnectionMessage | ContactmesssageConnectionName | Member | createMemberPayload | updateMemberPayload | deleteMemberPayload | MemberConnection | MemberAggregator | MemberAggregatorSum | MemberAggregatorAvg | MemberAggregatorMin | MemberAggregatorMax | MemberGroupBy | MemberConnection_id | MemberConnectionCreatedAt | MemberConnectionUpdatedAt | MemberConnectionName | MemberConnectionGradyear | MemberConnectionProfilepicture | MemberConnectionBio | MemberConnectionWebsite | MemberConnectionRole | MemberConnectionSlug | Post | createPostPayload | updatePostPayload | deletePostPayload | PostConnection | PostAggregator | PostGroupBy | PostConnection_id | PostConnectionCreatedAt | PostConnectionUpdatedAt | PostConnectionTitle | PostConnectionBody | PostConnectionFeatured | PostConnectionAuthor | PostConnectionSlug | Project | createProjectPayload | updateProjectPayload | deleteProjectPayload | ProjectConnection | ProjectAggregator | ProjectAggregatorSum | ProjectAggregatorAvg | ProjectAggregatorMin | ProjectAggregatorMax | ProjectGroupBy | ProjectConnection_id | ProjectConnectionCreatedAt | ProjectConnectionUpdatedAt | ProjectConnectionTitle | ProjectConnectionDescription | ProjectConnectionFeatured | ProjectConnectionYear | ProjectConnectionPartners | ProjectConnectionSlug | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileGroupBy | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionHash | UploadFileConnectionSha256 | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionProvider | UploadFileConnectionPublic_id | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Contactmesssage | createContactmesssagePayload | updateContactmesssagePayload | deleteContactmesssagePayload | ContactmesssageConnection | ContactmesssageAggregator | ContactmesssageGroupBy | ContactmesssageConnection_id | ContactmesssageConnectionCreatedAt | ContactmesssageConnectionUpdatedAt | ContactmesssageConnectionEmail | ContactmesssageConnectionMessage | ContactmesssageConnectionName | Designproject | createDesignprojectPayload | updateDesignprojectPayload | deleteDesignprojectPayload | DesignprojectConnection | DesignprojectAggregator | DesignprojectGroupBy | DesignprojectConnection_id | DesignprojectConnectionCreatedAt | DesignprojectConnectionUpdatedAt | DesignprojectConnectionTitle | DesignprojectConnectionDescription | DesignprojectConnectionDate | DesignprojectConnectionFeatured | DesignprojectConnectionSlug | Member | createMemberPayload | updateMemberPayload | deleteMemberPayload | MemberConnection | MemberAggregator | MemberAggregatorSum | MemberAggregatorAvg | MemberAggregatorMin | MemberAggregatorMax | MemberGroupBy | MemberConnection_id | MemberConnectionCreatedAt | MemberConnectionUpdatedAt | MemberConnectionName | MemberConnectionGradyear | MemberConnectionProfilepicture | MemberConnectionBio | MemberConnectionWebsite | MemberConnectionRole | MemberConnectionSlug | Photoproject | createPhotoprojectPayload | updatePhotoprojectPayload | deletePhotoprojectPayload | PhotoprojectConnection | PhotoprojectAggregator | PhotoprojectGroupBy | PhotoprojectConnection_id | PhotoprojectConnectionCreatedAt | PhotoprojectConnectionUpdatedAt | PhotoprojectConnectionTitle | PhotoprojectConnectionDate | PhotoprojectConnectionDescription | PhotoprojectConnectionFeatured | PhotoprojectConnectionSlug | Post | createPostPayload | updatePostPayload | deletePostPayload | PostConnection | PostAggregator | PostGroupBy | PostConnection_id | PostConnectionCreatedAt | PostConnectionUpdatedAt | PostConnectionTitle | PostConnectionBody | PostConnectionFeatured | PostConnectionAuthor | PostConnectionSlug | Project | createProjectPayload | updateProjectPayload | deleteProjectPayload | ProjectConnection | ProjectAggregator | ProjectAggregatorSum | ProjectAggregatorAvg | ProjectAggregatorMin | ProjectAggregatorMax | ProjectGroupBy | ProjectConnection_id | ProjectConnectionCreatedAt | ProjectConnectionUpdatedAt | ProjectConnectionTitle | ProjectConnectionDescription | ProjectConnectionFeatured | ProjectConnectionYear | ProjectConnectionPartners | ProjectConnectionSlug | Videoproject | createVideoprojectPayload | updateVideoprojectPayload | deleteVideoprojectPayload | VideoprojectConnection | VideoprojectAggregator | VideoprojectGroupBy | VideoprojectConnection_id | VideoprojectConnectionCreatedAt | VideoprojectConnectionUpdatedAt | VideoprojectConnectionTitle | VideoprojectConnectionDescription | VideoprojectConnectionFeatured | VideoprojectConnectionDate | VideoprojectConnectionVideoURLs | VideoprojectConnectionSlug | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileGroupBy | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionHash | UploadFileConnectionSha256 | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionProvider | UploadFileConnectionPublic_id | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole
 
 type Mutation {
   createContactmesssage(input: createContactmesssageInput): createContactmesssagePayload
   updateContactmesssage(input: updateContactmesssageInput): updateContactmesssagePayload
   deleteContactmesssage(input: deleteContactmesssageInput): deleteContactmesssagePayload
+  createDesignproject(input: createDesignprojectInput): createDesignprojectPayload
+  updateDesignproject(input: updateDesignprojectInput): updateDesignprojectPayload
+  deleteDesignproject(input: deleteDesignprojectInput): deleteDesignprojectPayload
   createMember(input: createMemberInput): createMemberPayload
   updateMember(input: updateMemberInput): updateMemberPayload
   deleteMember(input: deleteMemberInput): deleteMemberPayload
+  createPhotoproject(input: createPhotoprojectInput): createPhotoprojectPayload
+  updatePhotoproject(input: updatePhotoprojectInput): updatePhotoprojectPayload
+  deletePhotoproject(input: deletePhotoprojectInput): deletePhotoprojectPayload
   createPost(input: createPostInput): createPostPayload
   updatePost(input: updatePostInput): updatePostPayload
   deletePost(input: deletePostInput): deletePostPayload
   createProject(input: createProjectInput): createProjectPayload
   updateProject(input: updateProjectInput): updateProjectPayload
   deleteProject(input: deleteProjectInput): deleteProjectPayload
+  createVideoproject(input: createVideoprojectInput): createVideoprojectPayload
+  updateVideoproject(input: updateVideoprojectInput): updateVideoprojectPayload
+  deleteVideoproject(input: deleteVideoprojectInput): deleteVideoprojectPayload
 
   """Create a new role"""
   createRole(input: createRoleInput): createRolePayload
@@ -335,6 +485,91 @@ type Mutation {
   updateUser(input: updateUserInput): updateUserPayload
   deleteUser(input: deleteUserInput): deleteUserPayload
   upload(refId: ID, ref: String, source: String, file: Upload!): UploadFile!
+}
+
+"""projects involving multiple photographs"""
+type Photoproject {
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  title: String
+  date: DateTime
+  description: String
+  featured: Boolean
+  slug: String
+  photos(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+  members(sort: String, limit: Int, start: Int, where: JSON): [Member]
+}
+
+type PhotoprojectAggregator {
+  count: Int
+}
+
+type PhotoprojectConnection {
+  values: [Photoproject]
+  groupBy: PhotoprojectGroupBy
+  aggregate: PhotoprojectAggregator
+}
+
+type PhotoprojectConnection_id {
+  key: ID
+  connection: PhotoprojectConnection
+}
+
+type PhotoprojectConnectionCreatedAt {
+  key: DateTime
+  connection: PhotoprojectConnection
+}
+
+type PhotoprojectConnectionDate {
+  key: DateTime
+  connection: PhotoprojectConnection
+}
+
+type PhotoprojectConnectionDescription {
+  key: String
+  connection: PhotoprojectConnection
+}
+
+type PhotoprojectConnectionFeatured {
+  key: Boolean
+  connection: PhotoprojectConnection
+}
+
+type PhotoprojectConnectionSlug {
+  key: String
+  connection: PhotoprojectConnection
+}
+
+type PhotoprojectConnectionTitle {
+  key: String
+  connection: PhotoprojectConnection
+}
+
+type PhotoprojectConnectionUpdatedAt {
+  key: DateTime
+  connection: PhotoprojectConnection
+}
+
+type PhotoprojectGroupBy {
+  _id: [PhotoprojectConnection_id]
+  createdAt: [PhotoprojectConnectionCreatedAt]
+  updatedAt: [PhotoprojectConnectionUpdatedAt]
+  title: [PhotoprojectConnectionTitle]
+  date: [PhotoprojectConnectionDate]
+  description: [PhotoprojectConnectionDescription]
+  featured: [PhotoprojectConnectionFeatured]
+  slug: [PhotoprojectConnectionSlug]
+}
+
+input PhotoprojectInput {
+  title: String
+  date: DateTime
+  photos: [ID]
+  description: String
+  featured: Boolean
+  members: [ID]
+  slug: String
 }
 
 """A blog post"""
@@ -539,15 +774,24 @@ type Query {
   contactmesssage(id: ID!): Contactmesssage
   contactmesssages(sort: String, limit: Int, start: Int, where: JSON): [Contactmesssage]
   contactmesssagesConnection(sort: String, limit: Int, start: Int, where: JSON): ContactmesssageConnection
+  designproject(id: ID!): Designproject
+  designprojects(sort: String, limit: Int, start: Int, where: JSON): [Designproject]
+  designprojectsConnection(sort: String, limit: Int, start: Int, where: JSON): DesignprojectConnection
   member(id: ID!): Member
   members(sort: String, limit: Int, start: Int, where: JSON): [Member]
   membersConnection(sort: String, limit: Int, start: Int, where: JSON): MemberConnection
+  photoproject(id: ID!): Photoproject
+  photoprojects(sort: String, limit: Int, start: Int, where: JSON): [Photoproject]
+  photoprojectsConnection(sort: String, limit: Int, start: Int, where: JSON): PhotoprojectConnection
   post(id: ID!): Post
   posts(sort: String, limit: Int, start: Int, where: JSON): [Post]
   postsConnection(sort: String, limit: Int, start: Int, where: JSON): PostConnection
   project(id: ID!): Project
   projects(sort: String, limit: Int, start: Int, where: JSON): [Project]
   projectsConnection(sort: String, limit: Int, start: Int, where: JSON): ProjectConnection
+  videoproject(id: ID!): Videoproject
+  videoprojects(sort: String, limit: Int, start: Int, where: JSON): [Videoproject]
+  videoprojectsConnection(sort: String, limit: Int, start: Int, where: JSON): VideoprojectConnection
   files(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
   filesConnection(sort: String, limit: Int, start: Int, where: JSON): UploadFileConnection
   role(id: ID!): UsersPermissionsRole
@@ -580,6 +824,15 @@ type updateContactmesssagePayload {
   contactmesssage: Contactmesssage
 }
 
+input updateDesignprojectInput {
+  where: InputID
+  data: DesignprojectInput
+}
+
+type updateDesignprojectPayload {
+  designproject: Designproject
+}
+
 input updateMemberInput {
   where: InputID
   data: MemberInput
@@ -587,6 +840,15 @@ input updateMemberInput {
 
 type updateMemberPayload {
   member: Member
+}
+
+input updatePhotoprojectInput {
+  where: InputID
+  data: PhotoprojectInput
+}
+
+type updatePhotoprojectPayload {
+  photoproject: Photoproject
 }
 
 input updatePostInput {
@@ -623,6 +885,15 @@ input updateUserInput {
 
 type updateUserPayload {
   user: UsersPermissionsUser
+}
+
+input updateVideoprojectInput {
+  where: InputID
+  data: VideoprojectInput
+}
+
+type updateVideoprojectPayload {
+  videoproject: Videoproject
 }
 
 """The `Upload` scalar type represents a file upload."""
@@ -873,4 +1144,95 @@ type UsersPermissionsUserGroupBy {
   confirmed: [UsersPermissionsUserConnectionConfirmed]
   blocked: [UsersPermissionsUserConnectionBlocked]
   role: [UsersPermissionsUserConnectionRole]
+}
+
+"""A project that involved video(s)"""
+type Videoproject {
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  title: String
+  description: String
+  featured: Boolean
+  date: DateTime
+  videoURLs: JSON
+  slug: String
+  members(sort: String, limit: Int, start: Int, where: JSON): [Member]
+}
+
+type VideoprojectAggregator {
+  count: Int
+}
+
+type VideoprojectConnection {
+  values: [Videoproject]
+  groupBy: VideoprojectGroupBy
+  aggregate: VideoprojectAggregator
+}
+
+type VideoprojectConnection_id {
+  key: ID
+  connection: VideoprojectConnection
+}
+
+type VideoprojectConnectionCreatedAt {
+  key: DateTime
+  connection: VideoprojectConnection
+}
+
+type VideoprojectConnectionDate {
+  key: DateTime
+  connection: VideoprojectConnection
+}
+
+type VideoprojectConnectionDescription {
+  key: String
+  connection: VideoprojectConnection
+}
+
+type VideoprojectConnectionFeatured {
+  key: Boolean
+  connection: VideoprojectConnection
+}
+
+type VideoprojectConnectionSlug {
+  key: String
+  connection: VideoprojectConnection
+}
+
+type VideoprojectConnectionTitle {
+  key: String
+  connection: VideoprojectConnection
+}
+
+type VideoprojectConnectionUpdatedAt {
+  key: DateTime
+  connection: VideoprojectConnection
+}
+
+type VideoprojectConnectionVideoURLs {
+  key: JSON
+  connection: VideoprojectConnection
+}
+
+type VideoprojectGroupBy {
+  _id: [VideoprojectConnection_id]
+  createdAt: [VideoprojectConnectionCreatedAt]
+  updatedAt: [VideoprojectConnectionUpdatedAt]
+  title: [VideoprojectConnectionTitle]
+  description: [VideoprojectConnectionDescription]
+  featured: [VideoprojectConnectionFeatured]
+  date: [VideoprojectConnectionDate]
+  videoURLs: [VideoprojectConnectionVideoURLs]
+  slug: [VideoprojectConnectionSlug]
+}
+
+input VideoprojectInput {
+  title: String
+  description: String
+  featured: Boolean
+  date: DateTime
+  videoURLs: JSON
+  members: [ID]
+  slug: String
 }
