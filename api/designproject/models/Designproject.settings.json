@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "designproject",
   "info": {
     "name": "designproject",
     "description": "Projects involving graphic design, i.e. posters, flyers, logos, business cards"
@@ -31,9 +31,13 @@
       "default": false,
       "type": "boolean"
     },
-    "member": {
+    "members": {
       "collection": "member",
       "via": "designproject"
+    },
+    "slug": {
+      "default": "",
+      "type": "string"
     }
   }
 }

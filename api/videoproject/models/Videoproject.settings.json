@@ -29,9 +29,13 @@
       "default": "",
       "type": "json"
     },
-    "member": {
+    "members": {
       "collection": "member",
       "via": "videoproject"
+    },
+    "slug": {
+      "default": "",
+      "type": "string"
     }
   }
 }

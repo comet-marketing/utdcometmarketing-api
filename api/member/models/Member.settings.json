@@ -51,14 +51,17 @@
     },
     "designproject": {
       "collection": "designproject",
+      "dominant": true,
       "via": "members"
     },
     "photoproject": {
       "collection": "photoproject",
+      "dominant": true,
       "via": "members"
     },
     "videoproject": {
       "collection": "videoproject",
+      "dominant": true,
       "via": "members"
     }
   }

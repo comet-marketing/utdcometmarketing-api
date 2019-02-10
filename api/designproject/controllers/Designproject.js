@@ -29,7 +29,7 @@ module.exports = {
    */
 
   findOne: async (ctx) => {
-    if (!ctx.params._id.match(/^[0-9a-fA-F]{24}$/)) {
+    if (!ctx.params.slug.match(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)) {
       return ctx.notFound();
     }
 

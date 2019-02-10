@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/designprojects/:_id",
+      "path": "/designprojects/:slug",
       "handler": "Designproject.findOne",
       "config": {
         "policies": []

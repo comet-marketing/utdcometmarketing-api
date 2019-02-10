@@ -551,6 +551,24 @@
               },
               "slug": {
                 "type": "string"
+              },
+              "designproject": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "photoproject": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "videoproject": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               }
             }
           },

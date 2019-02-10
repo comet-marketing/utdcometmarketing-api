@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "photoproject",
   "info": {
     "name": "photoproject",
     "description": "projects involving multiple photographs"
@@ -31,9 +31,13 @@
       "default": false,
       "type": "boolean"
     },
-    "member": {
+    "members": {
       "collection": "member",
       "via": "photoproject"
+    },
+    "slug": {
+      "default": "",
+      "type": "string"
     }
   }
 }
