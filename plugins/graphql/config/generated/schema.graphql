@@ -1,74 +1,82 @@
 """Message sent via contact form"""
-type Contactmesssage {
+type Contactmessage {
   _id: ID!
   createdAt: DateTime!
   updatedAt: DateTime!
   email: String
   message: String
   name: String
+  whom: ENUM_CONTACTMESSAGE_WHOM
 }
 
-type ContactmesssageAggregator {
+type ContactmessageAggregator {
   count: Int
 }
 
-type ContactmesssageConnection {
-  values: [Contactmesssage]
-  groupBy: ContactmesssageGroupBy
-  aggregate: ContactmesssageAggregator
+type ContactmessageConnection {
+  values: [Contactmessage]
+  groupBy: ContactmessageGroupBy
+  aggregate: ContactmessageAggregator
 }
 
-type ContactmesssageConnection_id {
+type ContactmessageConnection_id {
   key: ID
-  connection: ContactmesssageConnection
+  connection: ContactmessageConnection
 }
 
-type ContactmesssageConnectionCreatedAt {
+type ContactmessageConnectionCreatedAt {
   key: DateTime
-  connection: ContactmesssageConnection
+  connection: ContactmessageConnection
 }
 
-type ContactmesssageConnectionEmail {
+type ContactmessageConnectionEmail {
   key: String
-  connection: ContactmesssageConnection
+  connection: ContactmessageConnection
 }
 
-type ContactmesssageConnectionMessage {
+type ContactmessageConnectionMessage {
   key: String
-  connection: ContactmesssageConnection
+  connection: ContactmessageConnection
 }
 
-type ContactmesssageConnectionName {
+type ContactmessageConnectionName {
   key: String
-  connection: ContactmesssageConnection
+  connection: ContactmessageConnection
 }
 
-type ContactmesssageConnectionUpdatedAt {
+type ContactmessageConnectionUpdatedAt {
   key: DateTime
-  connection: ContactmesssageConnection
+  connection: ContactmessageConnection
 }
 
-type ContactmesssageGroupBy {
-  _id: [ContactmesssageConnection_id]
-  createdAt: [ContactmesssageConnectionCreatedAt]
-  updatedAt: [ContactmesssageConnectionUpdatedAt]
-  email: [ContactmesssageConnectionEmail]
-  message: [ContactmesssageConnectionMessage]
-  name: [ContactmesssageConnectionName]
+type ContactmessageConnectionWhom {
+  key: String
+  connection: ContactmessageConnection
 }
 
-input ContactmesssageInput {
+type ContactmessageGroupBy {
+  _id: [ContactmessageConnection_id]
+  createdAt: [ContactmessageConnectionCreatedAt]
+  updatedAt: [ContactmessageConnectionUpdatedAt]
+  email: [ContactmessageConnectionEmail]
+  message: [ContactmessageConnectionMessage]
+  name: [ContactmessageConnectionName]
+  whom: [ContactmessageConnectionWhom]
+}
+
+input ContactmessageInput {
   email: String
   message: String
   name: String
+  whom: ENUM_CONTACTMESSAGE_WHOM
 }
 
-input createContactmesssageInput {
-  data: ContactmesssageInput
+input createContactmessageInput {
+  data: ContactmessageInput
 }
 
-type createContactmesssagePayload {
-  contactmesssage: Contactmesssage
+type createContactmessagePayload {
+  contactmessage: Contactmessage
 }
 
 input createDesignprojectInput {
@@ -140,12 +148,12 @@ The `DateTime` scalar represents a date and time following the ISO 8601 standard
 """
 scalar DateTime
 
-input deleteContactmesssageInput {
+input deleteContactmessageInput {
   where: InputID
 }
 
-type deleteContactmesssagePayload {
-  contactmesssage: Contactmesssage
+type deleteContactmessagePayload {
+  contactmessage: Contactmessage
 }
 
 input deleteDesignprojectInput {
@@ -299,6 +307,12 @@ input DesignprojectInput {
   slug: String
 }
 
+enum ENUM_CONTACTMESSAGE_WHOM {
+  client
+  partner
+  other
+}
+
 input FileInput {
   name: String!
   hash: String!
@@ -448,12 +462,12 @@ input MemberInput {
   videoproject: [ID]
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Contactmesssage | createContactmesssagePayload | updateContactmesssagePayload | deleteContactmesssagePayload | ContactmesssageConnection | ContactmesssageAggregator | ContactmesssageGroupBy | ContactmesssageConnection_id | ContactmesssageConnectionCreatedAt | ContactmesssageConnectionUpdatedAt | ContactmesssageConnectionEmail | ContactmesssageConnectionMessage | ContactmesssageConnectionName | Designproject | createDesignprojectPayload | updateDesignprojectPayload | deleteDesignprojectPayload | DesignprojectConnection | DesignprojectAggregator | DesignprojectGroupBy | DesignprojectConnection_id | DesignprojectConnectionCreatedAt | DesignprojectConnectionUpdatedAt | DesignprojectConnectionTitle | DesignprojectConnectionDescription | DesignprojectConnectionDate | DesignprojectConnectionFeatured | DesignprojectConnectionSlug | Member | createMemberPayload | updateMemberPayload | deleteMemberPayload | MemberConnection | MemberAggregator | MemberAggregatorSum | MemberAggregatorAvg | MemberAggregatorMin | MemberAggregatorMax | MemberGroupBy | MemberConnection_id | MemberConnectionCreatedAt | MemberConnectionUpdatedAt | MemberConnectionName | MemberConnectionGradyear | MemberConnectionProfilepicture | MemberConnectionBio | MemberConnectionWebsite | MemberConnectionRole | MemberConnectionSlug | Photoproject | createPhotoprojectPayload | updatePhotoprojectPayload | deletePhotoprojectPayload | PhotoprojectConnection | PhotoprojectAggregator | PhotoprojectGroupBy | PhotoprojectConnection_id | PhotoprojectConnectionCreatedAt | PhotoprojectConnectionUpdatedAt | PhotoprojectConnectionTitle | PhotoprojectConnectionDate | PhotoprojectConnectionDescription | PhotoprojectConnectionFeatured | PhotoprojectConnectionSlug | Post | createPostPayload | updatePostPayload | deletePostPayload | PostConnection | PostAggregator | PostGroupBy | PostConnection_id | PostConnectionCreatedAt | PostConnectionUpdatedAt | PostConnectionTitle | PostConnectionBody | PostConnectionFeatured | PostConnectionAuthor | PostConnectionSlug | Project | createProjectPayload | updateProjectPayload | deleteProjectPayload | ProjectConnection | ProjectAggregator | ProjectAggregatorSum | ProjectAggregatorAvg | ProjectAggregatorMin | ProjectAggregatorMax | ProjectGroupBy | ProjectConnection_id | ProjectConnectionCreatedAt | ProjectConnectionUpdatedAt | ProjectConnectionTitle | ProjectConnectionDescription | ProjectConnectionFeatured | ProjectConnectionYear | ProjectConnectionPartners | ProjectConnectionSlug | Videoproject | createVideoprojectPayload | updateVideoprojectPayload | deleteVideoprojectPayload | VideoprojectConnection | VideoprojectAggregator | VideoprojectGroupBy | VideoprojectConnection_id | VideoprojectConnectionCreatedAt | VideoprojectConnectionUpdatedAt | VideoprojectConnectionTitle | VideoprojectConnectionDescription | VideoprojectConnectionFeatured | VideoprojectConnectionDate | VideoprojectConnectionVideoURLs | VideoprojectConnectionSlug | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileGroupBy | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionHash | UploadFileConnectionSha256 | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionProvider | UploadFileConnectionPublic_id | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Contactmessage | createContactmessagePayload | updateContactmessagePayload | deleteContactmessagePayload | ContactmessageConnection | ContactmessageAggregator | ContactmessageGroupBy | ContactmessageConnection_id | ContactmessageConnectionCreatedAt | ContactmessageConnectionUpdatedAt | ContactmessageConnectionEmail | ContactmessageConnectionMessage | ContactmessageConnectionName | ContactmessageConnectionWhom | Designproject | createDesignprojectPayload | updateDesignprojectPayload | deleteDesignprojectPayload | DesignprojectConnection | DesignprojectAggregator | DesignprojectGroupBy | DesignprojectConnection_id | DesignprojectConnectionCreatedAt | DesignprojectConnectionUpdatedAt | DesignprojectConnectionTitle | DesignprojectConnectionDescription | DesignprojectConnectionDate | DesignprojectConnectionFeatured | DesignprojectConnectionSlug | Member | createMemberPayload | updateMemberPayload | deleteMemberPayload | MemberConnection | MemberAggregator | MemberAggregatorSum | MemberAggregatorAvg | MemberAggregatorMin | MemberAggregatorMax | MemberGroupBy | MemberConnection_id | MemberConnectionCreatedAt | MemberConnectionUpdatedAt | MemberConnectionName | MemberConnectionGradyear | MemberConnectionProfilepicture | MemberConnectionBio | MemberConnectionWebsite | MemberConnectionRole | MemberConnectionSlug | Photoproject | createPhotoprojectPayload | updatePhotoprojectPayload | deletePhotoprojectPayload | PhotoprojectConnection | PhotoprojectAggregator | PhotoprojectGroupBy | PhotoprojectConnection_id | PhotoprojectConnectionCreatedAt | PhotoprojectConnectionUpdatedAt | PhotoprojectConnectionTitle | PhotoprojectConnectionDate | PhotoprojectConnectionDescription | PhotoprojectConnectionFeatured | PhotoprojectConnectionSlug | Post | createPostPayload | updatePostPayload | deletePostPayload | PostConnection | PostAggregator | PostGroupBy | PostConnection_id | PostConnectionCreatedAt | PostConnectionUpdatedAt | PostConnectionTitle | PostConnectionBody | PostConnectionFeatured | PostConnectionAuthor | PostConnectionSlug | Project | createProjectPayload | updateProjectPayload | deleteProjectPayload | ProjectConnection | ProjectAggregator | ProjectAggregatorSum | ProjectAggregatorAvg | ProjectAggregatorMin | ProjectAggregatorMax | ProjectGroupBy | ProjectConnection_id | ProjectConnectionCreatedAt | ProjectConnectionUpdatedAt | ProjectConnectionTitle | ProjectConnectionDescription | ProjectConnectionFeatured | ProjectConnectionYear | ProjectConnectionPartners | ProjectConnectionSlug | Videoproject | createVideoprojectPayload | updateVideoprojectPayload | deleteVideoprojectPayload | VideoprojectConnection | VideoprojectAggregator | VideoprojectGroupBy | VideoprojectConnection_id | VideoprojectConnectionCreatedAt | VideoprojectConnectionUpdatedAt | VideoprojectConnectionTitle | VideoprojectConnectionDescription | VideoprojectConnectionFeatured | VideoprojectConnectionDate | VideoprojectConnectionVideoURLs | VideoprojectConnectionSlug | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileGroupBy | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionHash | UploadFileConnectionSha256 | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionProvider | UploadFileConnectionPublic_id | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole
 
 type Mutation {
-  createContactmesssage(input: createContactmesssageInput): createContactmesssagePayload
-  updateContactmesssage(input: updateContactmesssageInput): updateContactmesssagePayload
-  deleteContactmesssage(input: deleteContactmesssageInput): deleteContactmesssagePayload
+  createContactmessage(input: createContactmessageInput): createContactmessagePayload
+  updateContactmessage(input: updateContactmessageInput): updateContactmessagePayload
+  deleteContactmessage(input: deleteContactmessageInput): deleteContactmessagePayload
   createDesignproject(input: createDesignprojectInput): createDesignprojectPayload
   updateDesignproject(input: updateDesignprojectInput): updateDesignprojectPayload
   deleteDesignproject(input: deleteDesignprojectInput): deleteDesignprojectPayload
@@ -771,9 +785,9 @@ input ProjectInput {
 }
 
 type Query {
-  contactmesssage(id: ID!): Contactmesssage
-  contactmesssages(sort: String, limit: Int, start: Int, where: JSON): [Contactmesssage]
-  contactmesssagesConnection(sort: String, limit: Int, start: Int, where: JSON): ContactmesssageConnection
+  contactmessage(id: ID!): Contactmessage
+  contactmessages(sort: String, limit: Int, start: Int, where: JSON): [Contactmessage]
+  contactmessagesConnection(sort: String, limit: Int, start: Int, where: JSON): ContactmessageConnection
   designproject(id: ID!): Designproject
   designprojects(sort: String, limit: Int, start: Int, where: JSON): [Designproject]
   designprojectsConnection(sort: String, limit: Int, start: Int, where: JSON): DesignprojectConnection
@@ -815,13 +829,13 @@ input RoleInput {
   users: [ID]
 }
 
-input updateContactmesssageInput {
+input updateContactmessageInput {
   where: InputID
-  data: ContactmesssageInput
+  data: ContactmessageInput
 }
 
-type updateContactmesssagePayload {
-  contactmesssage: Contactmesssage
+type updateContactmessagePayload {
+  contactmessage: Contactmessage
 }
 
 input updateDesignprojectInput {

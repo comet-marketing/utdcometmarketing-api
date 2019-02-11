@@ -2,7 +2,7 @@
   "connection": "default",
   "collectionName": "contactmesssage",
   "info": {
-    "name": "contactmesssage",
+    "name": "contactmessage",
     "description": "Message sent via contact form",
     "mainField": "email"
   },
@@ -21,6 +21,15 @@
     "name": {
       "default": "",
       "type": "string"
+    },
+    "whom": {
+      "default": "",
+      "type": "enumeration",
+      "enum": [
+        "client",
+        "partner",
+        "other"
+      ]
     }
   }
 }

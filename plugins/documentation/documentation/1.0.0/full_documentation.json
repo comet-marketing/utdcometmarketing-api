@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "02/10/2019 12:05:37 AM"
+    "x-generation-date": "02/11/2019 10:56:06 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -44,7 +44,7 @@
     }
   ],
   "paths": {
-    "/contactmesssages": {
+    "/contactmessages": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -56,7 +56,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Contactmesssage"
+                    "$ref": "#/components/schemas/Contactmessage"
                   }
                 }
               }
@@ -95,7 +95,7 @@
         },
         "summary": "",
         "tags": [
-          "Contactmesssage"
+          "Contactmessage"
         ],
         "parameters": [
           {
@@ -219,7 +219,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Contactmesssage"
+                  "$ref": "#/components/schemas/Contactmessage"
                 }
               }
             }
@@ -257,7 +257,7 @@
         },
         "summary": "",
         "tags": [
-          "Contactmesssage"
+          "Contactmessage"
         ],
         "requestBody": {
           "description": "",
@@ -265,14 +265,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewContactmesssage"
+                "$ref": "#/components/schemas/NewContactmessage"
               }
             }
           }
         }
       }
     },
-    "/contactmesssages/count": {
+    "/contactmessages/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -324,12 +324,12 @@
         },
         "summary": "",
         "tags": [
-          "Contactmesssage"
+          "Contactmessage"
         ],
         "parameters": []
       }
     },
-    "/contactmesssages/{_id}": {
+    "/contactmessages/{_id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -339,7 +339,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Contactmesssage"
+                  "$ref": "#/components/schemas/Contactmessage"
                 }
               }
             }
@@ -377,7 +377,7 @@
         },
         "summary": "",
         "tags": [
-          "Contactmesssage"
+          "Contactmessage"
         ],
         "parameters": [
           {
@@ -401,7 +401,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Contactmesssage"
+                  "$ref": "#/components/schemas/Contactmessage"
                 }
               }
             }
@@ -439,7 +439,7 @@
         },
         "summary": "",
         "tags": [
-          "Contactmesssage"
+          "Contactmessage"
         ],
         "requestBody": {
           "description": "",
@@ -447,7 +447,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewContactmesssage"
+                "$ref": "#/components/schemas/NewContactmessage"
               }
             }
           }
@@ -513,7 +513,7 @@
         },
         "summary": "",
         "tags": [
-          "Contactmesssage"
+          "Contactmessage"
         ],
         "parameters": [
           {
@@ -5467,7 +5467,7 @@
   },
   "components": {
     "schemas": {
-      "Contactmesssage": {
+      "Contactmessage": {
         "required": [
           "id"
         ],
@@ -5486,10 +5486,19 @@
           "name": {
             "type": "string",
             "default": ""
+          },
+          "whom": {
+            "type": "string",
+            "default": "",
+            "enum": [
+              "client",
+              "partner",
+              "other"
+            ]
           }
         }
       },
-      "NewContactmesssage": {
+      "NewContactmessage": {
         "properties": {
           "email": {
             "type": "string",
@@ -5502,6 +5511,15 @@
           "name": {
             "type": "string",
             "default": ""
+          },
+          "whom": {
+            "type": "string",
+            "default": "",
+            "enum": [
+              "client",
+              "partner",
+              "other"
+            ]
           }
         }
       },
@@ -7013,7 +7031,7 @@
   },
   "tags": [
     {
-      "name": "Contactmesssage"
+      "name": "Contactmessage"
     },
     {
       "name": "Designproject"
