@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Contactmesssage.js service
+ * Contactmessage.js service
  *
  * @description: A set of functions similar to controller's actions to avoid code duplication.
  */
@@ -12,21 +12,21 @@ const _ = require('lodash');
 module.exports = {
 
   /**
-   * Promise to fetch all contactmesssages.
+   * Promise to fetch all contactmessages.
    *
    * @return {Promise}
    */
 
   fetchAll: (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('contactmesssage', params);
+    const filters = strapi.utils.models.convertParams('contactmessage', params);
     // Select field to populate.
-    const populate = Contactmesssage.associations
+    const populate = Contactmessage.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    return Contactmesssage
+    return Contactmessage
       .find()
       .where(filters.where)
       .sort(filters.sort)
@@ -36,90 +36,90 @@ module.exports = {
   },
 
   /**
-   * Promise to fetch a/an contactmesssage.
+   * Promise to fetch a/an contactmessage.
    *
    * @return {Promise}
    */
 
   fetch: (params) => {
     // Select field to populate.
-    const populate = Contactmesssage.associations
+    const populate = Contactmessage.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    return Contactmesssage
-      .findOne(_.pick(params, _.keys(Contactmesssage.schema.paths)))
+    return Contactmessage
+      .findOne(_.pick(params, _.keys(Contactmessage.schema.paths)))
       .populate(populate);
   },
 
   /**
-   * Promise to count contactmesssages.
+   * Promise to count contactmessages.
    *
    * @return {Promise}
    */
 
   count: (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('contactmesssage', params);
+    const filters = strapi.utils.models.convertParams('contactmessage', params);
 
-    return Contactmesssage
+    return Contactmessage
       .count()
       .where(filters.where);
   },
 
   /**
-   * Promise to add a/an contactmesssage.
+   * Promise to add a/an contactmessage.
    *
    * @return {Promise}
    */
 
   add: async (values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Contactmesssage.associations.map(ast => ast.alias));
-    const data = _.omit(values, Contactmesssage.associations.map(ast => ast.alias));
+    const relations = _.pick(values, Contactmessage.associations.map(ast => ast.alias));
+    const data = _.omit(values, Contactmessage.associations.map(ast => ast.alias));
 
     // Create entry with no-relational data.
-    const entry = await Contactmesssage.create(data);
+    const entry = await Contactmessage.create(data);
 
     // Create relational data and return the entry.
-    return Contactmesssage.updateRelations({ _id: entry.id, values: relations });
+    return Contactmessage.updateRelations({ _id: entry.id, values: relations });
   },
 
   /**
-   * Promise to edit a/an contactmesssage.
+   * Promise to edit a/an contactmessage.
    *
    * @return {Promise}
    */
 
   edit: async (params, values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Contactmesssage.associations.map(a => a.alias));
-    const data = _.omit(values, Contactmesssage.associations.map(a => a.alias));
+    const relations = _.pick(values, Contactmessage.associations.map(a => a.alias));
+    const data = _.omit(values, Contactmessage.associations.map(a => a.alias));
 
     // Update entry with no-relational data.
-    const entry = await Contactmesssage.update(params, data, { multi: true });
+    const entry = await Contactmessage.update(params, data, { multi: true });
 
     // Update relational data and return the entry.
-    return Contactmesssage.updateRelations(Object.assign(params, { values: relations }));
+    return Contactmessage.updateRelations(Object.assign(params, { values: relations }));
   },
 
   /**
-   * Promise to remove a/an contactmesssage.
+   * Promise to remove a/an contactmessage.
    *
    * @return {Promise}
    */
 
   remove: async params => {
     // Select field to populate.
-    const populate = Contactmesssage.associations
+    const populate = Contactmessage.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
     // Note: To get the full response of Mongo, use the `remove()` method
     // or add spent the parameter `{ passRawResult: true }` as second argument.
-    const data = await Contactmesssage
+    const data = await Contactmessage
       .findOneAndRemove(params, {})
       .populate(populate);
 
@@ -128,7 +128,7 @@ module.exports = {
     }
 
     await Promise.all(
-      Contactmesssage.associations.map(async association => {
+      Contactmessage.associations.map(async association => {
         if (!association.via || !data._id) {
           return true;
         }
@@ -149,22 +149,22 @@ module.exports = {
   },
 
   /**
-   * Promise to search a/an contactmesssage.
+   * Promise to search a/an contactmessage.
    *
    * @return {Promise}
    */
 
   search: async (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('contactmesssage', params);
+    const filters = strapi.utils.models.convertParams('contactmessage', params);
     // Select field to populate.
-    const populate = Contactmesssage.associations
+    const populate = Contactmessage.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    const $or = Object.keys(Contactmesssage.attributes).reduce((acc, curr) => {
-      switch (Contactmesssage.attributes[curr].type) {
+    const $or = Object.keys(Contactmessage.attributes).reduce((acc, curr) => {
+      switch (Contactmessage.attributes[curr].type) {
         case 'integer':
         case 'float':
         case 'decimal':
@@ -188,7 +188,7 @@ module.exports = {
       }
     }, []);
 
-    return Contactmesssage
+    return Contactmessage
       .find({ $or })
       .sort(filters.sort)
       .skip(filters.start)

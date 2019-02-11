@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/videoprojects",
-      "handler": "Videoproject.find",
+      "path": "/testimonials",
+      "handler": "Testimonial.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/videoprojects/count",
-      "handler": "Videoproject.count",
+      "path": "/testimonials/count",
+      "handler": "Testimonial.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/videoprojects/:slug",
-      "handler": "Videoproject.findOne",
+      "path": "/testimonials/:slug",
+      "handler": "Testimonial.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/videoprojects",
-      "handler": "Videoproject.create",
+      "path": "/testimonials",
+      "handler": "Testimonial.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/videoprojects/:_id",
-      "handler": "Videoproject.update",
+      "path": "/testimonials/:_id",
+      "handler": "Testimonial.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/videoprojects/:_id",
-      "handler": "Videoproject.destroy",
+      "path": "/testimonials/:_id",
+      "handler": "Testimonial.destroy",
       "config": {
         "policies": []
       }

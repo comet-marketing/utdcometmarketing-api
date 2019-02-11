@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Lifecycle callbacks for the `Contactmesssage` model.
+ * Lifecycle callbacks for the `Contactmessage` model.
  */
 
 module.exports = {

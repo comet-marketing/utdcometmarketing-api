@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/contactmesssages": {
+    "/testimonials": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Contactmesssage"
+                    "$ref": "#/components/schemas/Testimonial"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Contactmesssage"
+          "Testimonial"
         ],
         "parameters": [
           {
@@ -175,7 +175,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Contactmesssage"
+                  "$ref": "#/components/schemas/Testimonial"
                 }
               }
             }
@@ -213,7 +213,7 @@
         },
         "summary": "",
         "tags": [
-          "Contactmesssage"
+          "Testimonial"
         ],
         "requestBody": {
           "description": "",
@@ -221,14 +221,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewContactmesssage"
+                "$ref": "#/components/schemas/NewTestimonial"
               }
             }
           }
         }
       }
     },
-    "/contactmesssages/count": {
+    "/testimonials/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -280,12 +280,12 @@
         },
         "summary": "",
         "tags": [
-          "Contactmesssage"
+          "Testimonial"
         ],
         "parameters": []
       }
     },
-    "/contactmesssages/{_id}": {
+    "/testimonials/{slug}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -295,7 +295,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Contactmesssage"
+                  "$ref": "#/components/schemas/Testimonial"
                 }
               }
             }
@@ -333,11 +333,11 @@
         },
         "summary": "",
         "tags": [
-          "Contactmesssage"
+          "Testimonial"
         ],
         "parameters": [
           {
-            "name": "_id",
+            "name": "slug",
             "in": "path",
             "description": "",
             "deprecated": false,
@@ -347,7 +347,9 @@
             }
           }
         ]
-      },
+      }
+    },
+    "/testimonials/{_id}": {
       "put": {
         "deprecated": false,
         "description": "Update a record",
@@ -357,7 +359,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Contactmesssage"
+                  "$ref": "#/components/schemas/Testimonial"
                 }
               }
             }
@@ -395,7 +397,7 @@
         },
         "summary": "",
         "tags": [
-          "Contactmesssage"
+          "Testimonial"
         ],
         "requestBody": {
           "description": "",
@@ -403,7 +405,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewContactmesssage"
+                "$ref": "#/components/schemas/NewTestimonial"
               }
             }
           }
@@ -469,7 +471,7 @@
         },
         "summary": "",
         "tags": [
-          "Contactmesssage"
+          "Testimonial"
         ],
         "parameters": [
           {
@@ -488,7 +490,7 @@
   },
   "components": {
     "schemas": {
-      "Contactmesssage": {
+      "Testimonial": {
         "required": [
           "id"
         ],
@@ -496,31 +498,31 @@
           "id": {
             "type": "string"
           },
-          "email": {
+          "quote": {
             "type": "string",
             "default": ""
           },
-          "message": {
+          "client": {
             "type": "string",
             "default": ""
           },
-          "name": {
+          "slug": {
             "type": "string",
             "default": ""
           }
         }
       },
-      "NewContactmesssage": {
+      "NewTestimonial": {
         "properties": {
-          "email": {
+          "quote": {
             "type": "string",
             "default": ""
           },
-          "message": {
+          "client": {
             "type": "string",
             "default": ""
           },
-          "name": {
+          "slug": {
             "type": "string",
             "default": ""
           }
@@ -530,7 +532,7 @@
   },
   "tags": [
     {
-      "name": "Contactmesssage"
+      "name": "Testimonial"
     }
   ]
 }
