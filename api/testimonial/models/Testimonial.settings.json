@@ -1,0 +1,25 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "testimonial",
+    "description": "Testimonials about Comet Marketing"
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "quote": {
+      "default": "",
+      "type": "text"
+    },
+    "client": {
+      "default": "",
+      "type": "string"
+    },
+    "slug": {
+      "default": "",
+      "type": "string"
+    }
+  }
+}
