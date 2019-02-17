@@ -74,7 +74,7 @@ module.exports = {
         text: `From: ${ctx.request.body.email}, \n Message: ${message}`,
         html: `From: ${ctx.request.body.email}, \n Message: ${message}`
       });
-      return strapi.services.contactmesssage.add(ctx.request.body);
+      return strapi.services.contactmessage.add(ctx.request.body);
     }
     else {
       return ctx.response.badRequest('Invalid email');
