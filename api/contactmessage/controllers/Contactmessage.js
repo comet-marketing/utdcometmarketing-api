@@ -65,14 +65,17 @@ module.exports = {
       let message = ctx.request.body.message.replace(/[^a-z0-9áéíóúñü \.,_-]/gim, "").trim();
       ctx.request.body.name = name;
       ctx.request.body.message = message;
+      ctx.request.body.email = email;
+      ctx.request.body.whom = whom;
+      ctx.request.body.where = where;
 
       await strapi.plugins['email'].services.email.send({
         to: 'utdcometmarketing@gmail.com',
         from: `contactform@utdcometmarketing.com`,
         replyTo: 'no-reply@utdcometmarketing.com',
         subject: `Contact Form message from ${name}`,
-        text: `From: ${ctx.request.body.email}, \n Message: ${message}`,
-        html: `From: ${ctx.request.body.email}, \n Message: ${message}`
+        text: `From: ${email}, \n Message: ${message} \n\n Who: ${whom}\nWhere: ${where}`,
+        html: `From: ${email}, \n Message: ${message} \n\n Who: ${whom}\nWhere: ${where}`
       });
       return strapi.services.contactmessage.add(ctx.request.body);
     }
