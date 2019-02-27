@@ -65,9 +65,9 @@ module.exports = {
       let message = ctx.request.body.message.replace(/[^a-z0-9áéíóúñü \.,_-]/gim, "").trim();
       ctx.request.body.name = name;
       ctx.request.body.message = message;
-      ctx.request.body.email = email;
-      ctx.request.body.whom = whom;
-      ctx.request.body.where = where;
+      let email = ctx.request.body.email;
+      let whom = ctx.request.body.whom;
+      let where = ctx.request.body.where;
 
       await strapi.plugins['email'].services.email.send({
         to: 'utdcometmarketing@gmail.com',
