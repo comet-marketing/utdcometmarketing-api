@@ -516,6 +516,23 @@
               "partner",
               "other"
             ]
+          },
+          "where": {
+            "type": "string",
+            "default": "",
+            "enum": [
+              "Facebook",
+              "Instagram",
+              "Twitter",
+              "YouTube",
+              "Word of Mouth",
+              "Email Announcement",
+              "Google search",
+              "UTD event",
+              "Comet Marketing Member",
+              "Presence",
+              "Other"
+            ]
           }
         }
       },
@@ -540,6 +557,23 @@
               "client",
               "partner",
               "other"
+            ]
+          },
+          "where": {
+            "type": "string",
+            "default": "",
+            "enum": [
+              "Facebook",
+              "Instagram",
+              "Twitter",
+              "YouTube",
+              "Word of Mouth",
+              "Email Announcement",
+              "Google search",
+              "UTD event",
+              "Comet Marketing Member",
+              "Presence",
+              "Other"
             ]
           }
         }

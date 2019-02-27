@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "02/11/2019 11:01:25 AM"
+    "x-generation-date": "02/26/2019 4:19:40 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -5982,6 +5982,23 @@
               "partner",
               "other"
             ]
+          },
+          "where": {
+            "type": "string",
+            "default": "",
+            "enum": [
+              "Facebook",
+              "Instagram",
+              "Twitter",
+              "YouTube",
+              "Word of Mouth",
+              "Email Announcement",
+              "Google search",
+              "UTD event",
+              "Comet Marketing Member",
+              "Presence",
+              "Other"
+            ]
           }
         }
       },
@@ -6006,6 +6023,23 @@
               "client",
               "partner",
               "other"
+            ]
+          },
+          "where": {
+            "type": "string",
+            "default": "",
+            "enum": [
+              "Facebook",
+              "Instagram",
+              "Twitter",
+              "YouTube",
+              "Word of Mouth",
+              "Email Announcement",
+              "Google search",
+              "UTD event",
+              "Comet Marketing Member",
+              "Presence",
+              "Other"
             ]
           }
         }

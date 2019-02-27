@@ -30,6 +30,23 @@
         "partner",
         "other"
       ]
+    },
+    "where": {
+      "default": "",
+      "type": "enumeration",
+      "enum": [
+        "Facebook",
+        "Instagram",
+        "Twitter",
+        "YouTube",
+        "Word of Mouth",
+        "Email Announcement",
+        "Google search",
+        "UTD event",
+        "Comet Marketing Member",
+        "Presence",
+        "Other"
+      ]
     }
   }
 }
