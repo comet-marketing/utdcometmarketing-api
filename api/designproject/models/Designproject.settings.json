@@ -38,6 +38,12 @@
     "slug": {
       "default": "",
       "type": "string"
+    },
+    "thumbnail": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
     }
   }
 }
