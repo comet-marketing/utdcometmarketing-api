@@ -623,6 +623,9 @@
                 "id": {
                   "type": "string"
                 },
+                "slug": {
+                  "type": "string"
+                },
                 "name": {
                   "type": "string"
                 },
@@ -653,9 +656,6 @@
                 "role": {
                   "type": "string"
                 },
-                "slug": {
-                  "type": "string"
-                },
                 "designproject": {
                   "type": "array",
                   "items": {
@@ -673,6 +673,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "Exec": {
+                  "type": "boolean"
                 }
               }
             }

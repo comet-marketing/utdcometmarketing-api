@@ -10,6 +10,10 @@
     "timestamps": true
   },
   "attributes": {
+    "slug": {
+      "type": "string",
+      "configurable": false
+    },
     "name": {
       "default": "",
       "type": "string",
@@ -45,24 +49,24 @@
       "default": "Member",
       "type": "string"
     },
-    "slug": {
-      "type": "string",
-      "configurable": false
-    },
     "designproject": {
       "collection": "designproject",
-      "dominant": true,
-      "via": "members"
+      "via": "members",
+      "dominant": true
     },
     "photoproject": {
       "collection": "photoproject",
-      "dominant": true,
-      "via": "members"
+      "via": "members",
+      "dominant": true
     },
     "videoproject": {
       "collection": "videoproject",
-      "dominant": true,
-      "via": "members"
+      "via": "members",
+      "dominant": true
+    },
+    "Exec": {
+      "default": false,
+      "type": "boolean"
     }
   }
 }

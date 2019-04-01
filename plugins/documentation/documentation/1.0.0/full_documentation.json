@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "03/13/2019 12:05:09 AM"
+    "x-generation-date": "04/01/2019 4:30:53 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -6128,6 +6128,9 @@
                 "id": {
                   "type": "string"
                 },
+                "slug": {
+                  "type": "string"
+                },
                 "name": {
                   "type": "string"
                 },
@@ -6158,9 +6161,6 @@
                 "role": {
                   "type": "string"
                 },
-                "slug": {
-                  "type": "string"
-                },
                 "designproject": {
                   "type": "array",
                   "items": {
@@ -6178,6 +6178,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "Exec": {
+                  "type": "boolean"
                 }
               }
             }
@@ -6271,6 +6274,9 @@
         ],
         "properties": {
           "id": {
+            "type": "string"
+          },
+          "slug": {
             "type": "string"
           },
           "name": {
@@ -6422,9 +6428,6 @@
             "type": "string",
             "default": "Member"
           },
-          "slug": {
-            "type": "string"
-          },
           "designproject": {
             "type": "array",
             "items": {
@@ -6544,6 +6547,10 @@
                 }
               }
             }
+          },
+          "Exec": {
+            "type": "boolean",
+            "default": false
           }
         }
       },
@@ -6552,6 +6559,9 @@
           "name"
         ],
         "properties": {
+          "slug": {
+            "type": "string"
+          },
           "name": {
             "type": "string",
             "default": ""
@@ -6584,9 +6594,6 @@
             "type": "string",
             "default": "Member"
           },
-          "slug": {
-            "type": "string"
-          },
           "designproject": {
             "type": "array",
             "items": {
@@ -6604,6 +6611,10 @@
             "items": {
               "type": "string"
             }
+          },
+          "Exec": {
+            "type": "boolean",
+            "default": false
           }
         }
       },
@@ -6691,6 +6702,9 @@
                 "id": {
                   "type": "string"
                 },
+                "slug": {
+                  "type": "string"
+                },
                 "name": {
                   "type": "string"
                 },
@@ -6721,9 +6735,6 @@
                 "role": {
                   "type": "string"
                 },
-                "slug": {
-                  "type": "string"
-                },
                 "designproject": {
                   "type": "array",
                   "items": {
@@ -6741,6 +6752,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "Exec": {
+                  "type": "boolean"
                 }
               }
             }
@@ -6810,6 +6824,9 @@
               "id": {
                 "type": "string"
               },
+              "slug": {
+                "type": "string"
+              },
               "name": {
                 "type": "string"
               },
@@ -6840,9 +6857,6 @@
               "role": {
                 "type": "string"
               },
-              "slug": {
-                "type": "string"
-              },
               "designproject": {
                 "type": "array",
                 "items": {
@@ -6860,6 +6874,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "Exec": {
+                "type": "boolean"
               }
             }
           },
@@ -7023,6 +7040,9 @@
                 "id": {
                   "type": "string"
                 },
+                "slug": {
+                  "type": "string"
+                },
                 "name": {
                   "type": "string"
                 },
@@ -7053,9 +7073,6 @@
                 "role": {
                   "type": "string"
                 },
-                "slug": {
-                  "type": "string"
-                },
                 "designproject": {
                   "type": "array",
                   "items": {
@@ -7073,6 +7090,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "Exec": {
+                  "type": "boolean"
                 }
               }
             }
@@ -7245,6 +7265,9 @@
                 "id": {
                   "type": "string"
                 },
+                "slug": {
+                  "type": "string"
+                },
                 "name": {
                   "type": "string"
                 },
@@ -7275,9 +7298,6 @@
                 "role": {
                   "type": "string"
                 },
-                "slug": {
-                  "type": "string"
-                },
                 "designproject": {
                   "type": "array",
                   "items": {
@@ -7295,6 +7315,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "Exec": {
+                  "type": "boolean"
                 }
               }
             }

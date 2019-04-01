@@ -499,6 +499,9 @@
           "id": {
             "type": "string"
           },
+          "slug": {
+            "type": "string"
+          },
           "name": {
             "type": "string",
             "default": ""
@@ -648,9 +651,6 @@
             "type": "string",
             "default": "Member"
           },
-          "slug": {
-            "type": "string"
-          },
           "designproject": {
             "type": "array",
             "items": {
@@ -770,6 +770,10 @@
                 }
               }
             }
+          },
+          "Exec": {
+            "type": "boolean",
+            "default": false
           }
         }
       },
@@ -778,6 +782,9 @@
           "name"
         ],
         "properties": {
+          "slug": {
+            "type": "string"
+          },
           "name": {
             "type": "string",
             "default": ""
@@ -810,9 +817,6 @@
             "type": "string",
             "default": "Member"
           },
-          "slug": {
-            "type": "string"
-          },
           "designproject": {
             "type": "array",
             "items": {
@@ -830,6 +834,10 @@
             "items": {
               "type": "string"
             }
+          },
+          "Exec": {
+            "type": "boolean",
+            "default": false
           }
         }
       }
