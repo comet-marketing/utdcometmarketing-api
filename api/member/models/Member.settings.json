@@ -67,6 +67,10 @@
     "Exec": {
       "default": false,
       "type": "boolean"
+    },
+    "Alum": {
+      "default": false,
+      "type": "boolean"
     }
   }
 }

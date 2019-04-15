@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "04/01/2019 4:30:53 PM"
+    "x-generation-date": "04/15/2019 10:18:43 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -6181,6 +6181,9 @@
                 },
                 "Exec": {
                   "type": "boolean"
+                },
+                "Alum": {
+                  "type": "boolean"
                 }
               }
             }
@@ -6551,6 +6554,10 @@
           "Exec": {
             "type": "boolean",
             "default": false
+          },
+          "Alum": {
+            "type": "boolean",
+            "default": false
           }
         }
       },
@@ -6613,6 +6620,10 @@
             }
           },
           "Exec": {
+            "type": "boolean",
+            "default": false
+          },
+          "Alum": {
             "type": "boolean",
             "default": false
           }
@@ -6755,6 +6766,9 @@
                 },
                 "Exec": {
                   "type": "boolean"
+                },
+                "Alum": {
+                  "type": "boolean"
                 }
               }
             }
@@ -6876,6 +6890,9 @@
                 }
               },
               "Exec": {
+                "type": "boolean"
+              },
+              "Alum": {
                 "type": "boolean"
               }
             }
@@ -7092,6 +7109,9 @@
                   }
                 },
                 "Exec": {
+                  "type": "boolean"
+                },
+                "Alum": {
                   "type": "boolean"
                 }
               }
@@ -7317,6 +7337,9 @@
                   }
                 },
                 "Exec": {
+                  "type": "boolean"
+                },
+                "Alum": {
                   "type": "boolean"
                 }
               }

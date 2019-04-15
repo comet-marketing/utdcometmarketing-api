@@ -676,6 +676,9 @@
                 },
                 "Exec": {
                   "type": "boolean"
+                },
+                "Alum": {
+                  "type": "boolean"
                 }
               }
             }

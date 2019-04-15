@@ -774,6 +774,10 @@
           "Exec": {
             "type": "boolean",
             "default": false
+          },
+          "Alum": {
+            "type": "boolean",
+            "default": false
           }
         }
       },
@@ -836,6 +840,10 @@
             }
           },
           "Exec": {
+            "type": "boolean",
+            "default": false
+          },
+          "Alum": {
             "type": "boolean",
             "default": false
           }
