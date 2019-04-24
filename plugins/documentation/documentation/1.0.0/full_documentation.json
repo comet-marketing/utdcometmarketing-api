@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "04/23/2019 7:30:31 PM"
+    "x-generation-date": "04/23/2019 11:11:41 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -5691,6 +5691,12 @@
                 },
                 "Alum": {
                   "type": "boolean"
+                },
+                "joinDate": {
+                  "type": "string"
+                },
+                "leaveDate": {
+                  "type": "string"
                 }
               }
             }
@@ -6010,6 +6016,14 @@
           "Alum": {
             "type": "boolean",
             "default": false
+          },
+          "joinDate": {
+            "type": "string",
+            "default": ""
+          },
+          "leaveDate": {
+            "type": "string",
+            "default": ""
           }
         }
       },
@@ -6072,6 +6086,14 @@
           "Alum": {
             "type": "boolean",
             "default": false
+          },
+          "joinDate": {
+            "type": "string",
+            "default": ""
+          },
+          "leaveDate": {
+            "type": "string",
+            "default": ""
           }
         }
       },
@@ -6209,6 +6231,12 @@
                 },
                 "Alum": {
                   "type": "boolean"
+                },
+                "joinDate": {
+                  "type": "string"
+                },
+                "leaveDate": {
+                  "type": "string"
                 }
               }
             }
@@ -6328,6 +6356,12 @@
               },
               "Alum": {
                 "type": "boolean"
+              },
+              "joinDate": {
+                "type": "string"
+              },
+              "leaveDate": {
+                "type": "string"
               }
             }
           },
@@ -6485,6 +6519,12 @@
                 },
                 "Alum": {
                   "type": "boolean"
+                },
+                "joinDate": {
+                  "type": "string"
+                },
+                "leaveDate": {
+                  "type": "string"
                 }
               }
             }

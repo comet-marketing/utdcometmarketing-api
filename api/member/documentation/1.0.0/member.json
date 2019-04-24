@@ -723,6 +723,14 @@
           "Alum": {
             "type": "boolean",
             "default": false
+          },
+          "joinDate": {
+            "type": "string",
+            "default": ""
+          },
+          "leaveDate": {
+            "type": "string",
+            "default": ""
           }
         }
       },
@@ -785,6 +793,14 @@
           "Alum": {
             "type": "boolean",
             "default": false
+          },
+          "joinDate": {
+            "type": "string",
+            "default": ""
+          },
+          "leaveDate": {
+            "type": "string",
+            "default": ""
           }
         }
       }

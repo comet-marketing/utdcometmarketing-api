@@ -569,6 +569,12 @@
               },
               "Alum": {
                 "type": "boolean"
+              },
+              "joinDate": {
+                "type": "string"
+              },
+              "leaveDate": {
+                "type": "string"
               }
             }
           },

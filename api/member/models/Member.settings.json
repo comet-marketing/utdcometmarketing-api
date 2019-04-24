@@ -67,6 +67,14 @@
     "Alum": {
       "default": false,
       "type": "boolean"
+    },
+    "joinDate": {
+      "default": "",
+      "type": "date"
+    },
+    "leaveDate": {
+      "default": "",
+      "type": "date"
     }
   }
 }
