@@ -592,61 +592,6 @@
               }
             }
           },
-          "projects": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "pictures": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "videos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "featured": {
-                  "type": "boolean"
-                },
-                "year": {
-                  "type": "integer"
-                },
-                "members": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "additionalmedia": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "partners": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "string"
-                }
-              }
-            }
-          },
           "role": {
             "type": "string",
             "default": "Member"
@@ -806,12 +751,6 @@
             "default": ""
           },
           "posts": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "projects": {
             "type": "array",
             "items": {
               "type": "string"
