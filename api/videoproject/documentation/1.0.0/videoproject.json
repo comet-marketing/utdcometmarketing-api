@@ -553,12 +553,6 @@
                     "type": "string"
                   }
                 },
-                "projects": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "role": {
                   "type": "string"
                 },

@@ -119,14 +119,6 @@ type createPostPayload {
   post: Post
 }
 
-input createProjectInput {
-  data: ProjectInput
-}
-
-type createProjectPayload {
-  project: Project
-}
-
 input createRoleInput {
   data: RoleInput
 }
@@ -202,14 +194,6 @@ input deletePostInput {
 
 type deletePostPayload {
   post: Post
-}
-
-input deleteProjectInput {
-  where: InputID
-}
-
-type deleteProjectPayload {
-  project: Project
 }
 
 input deleteRoleInput {
@@ -403,7 +387,6 @@ type Member {
   Exec: Boolean
   Alum: Boolean
   posts(sort: String, limit: Int, start: Int, where: JSON): [Post]
-  projects(sort: String, limit: Int, start: Int, where: JSON): [Project]
   designproject(sort: String, limit: Int, start: Int, where: JSON): [Designproject]
   photoproject(sort: String, limit: Int, start: Int, where: JSON): [Photoproject]
   videoproject(sort: String, limit: Int, start: Int, where: JSON): [Videoproject]
@@ -522,7 +505,6 @@ input MemberInput {
   bio: String
   website: String
   posts: [ID]
-  projects: [ID]
   role: String
   designproject: [ID]
   photoproject: [ID]
@@ -531,7 +513,7 @@ input MemberInput {
   Alum: Boolean
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Contactmessage | createContactmessagePayload | updateContactmessagePayload | deleteContactmessagePayload | ContactmessageConnection | ContactmessageAggregator | ContactmessageGroupBy | ContactmessageConnection_id | ContactmessageConnectionCreatedAt | ContactmessageConnectionUpdatedAt | ContactmessageConnectionEmail | ContactmessageConnectionMessage | ContactmessageConnectionName | ContactmessageConnectionWhom | ContactmessageConnectionWhere | Designproject | createDesignprojectPayload | updateDesignprojectPayload | deleteDesignprojectPayload | DesignprojectConnection | DesignprojectAggregator | DesignprojectGroupBy | DesignprojectConnection_id | DesignprojectConnectionCreatedAt | DesignprojectConnectionUpdatedAt | DesignprojectConnectionTitle | DesignprojectConnectionDescription | DesignprojectConnectionDate | DesignprojectConnectionFeatured | DesignprojectConnectionSlug | DesignprojectConnectionThumbnail | Member | createMemberPayload | updateMemberPayload | deleteMemberPayload | MemberConnection | MemberAggregator | MemberAggregatorSum | MemberAggregatorAvg | MemberAggregatorMin | MemberAggregatorMax | MemberGroupBy | MemberConnection_id | MemberConnectionCreatedAt | MemberConnectionUpdatedAt | MemberConnectionSlug | MemberConnectionName | MemberConnectionGradyear | MemberConnectionProfilepicture | MemberConnectionBio | MemberConnectionWebsite | MemberConnectionRole | MemberConnectionExec | MemberConnectionAlum | Photoproject | createPhotoprojectPayload | updatePhotoprojectPayload | deletePhotoprojectPayload | PhotoprojectConnection | PhotoprojectAggregator | PhotoprojectGroupBy | PhotoprojectConnection_id | PhotoprojectConnectionCreatedAt | PhotoprojectConnectionUpdatedAt | PhotoprojectConnectionTitle | PhotoprojectConnectionDate | PhotoprojectConnectionDescription | PhotoprojectConnectionFeatured | PhotoprojectConnectionSlug | Post | createPostPayload | updatePostPayload | deletePostPayload | PostConnection | PostAggregator | PostGroupBy | PostConnection_id | PostConnectionCreatedAt | PostConnectionUpdatedAt | PostConnectionTitle | PostConnectionBody | PostConnectionFeatured | PostConnectionAuthor | PostConnectionSlug | Project | createProjectPayload | updateProjectPayload | deleteProjectPayload | ProjectConnection | ProjectAggregator | ProjectAggregatorSum | ProjectAggregatorAvg | ProjectAggregatorMin | ProjectAggregatorMax | ProjectGroupBy | ProjectConnection_id | ProjectConnectionCreatedAt | ProjectConnectionUpdatedAt | ProjectConnectionTitle | ProjectConnectionDescription | ProjectConnectionFeatured | ProjectConnectionYear | ProjectConnectionPartners | ProjectConnectionSlug | Testimonial | createTestimonialPayload | updateTestimonialPayload | deleteTestimonialPayload | TestimonialConnection | TestimonialAggregator | TestimonialGroupBy | TestimonialConnection_id | TestimonialConnectionCreatedAt | TestimonialConnectionUpdatedAt | TestimonialConnectionQuote | TestimonialConnectionClient | TestimonialConnectionSlug | Videoproject | createVideoprojectPayload | updateVideoprojectPayload | deleteVideoprojectPayload | VideoprojectConnection | VideoprojectAggregator | VideoprojectGroupBy | VideoprojectConnection_id | VideoprojectConnectionCreatedAt | VideoprojectConnectionUpdatedAt | VideoprojectConnectionTitle | VideoprojectConnectionDescription | VideoprojectConnectionFeatured | VideoprojectConnectionDate | VideoprojectConnectionVideoURLs | VideoprojectConnectionSlug | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileGroupBy | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionHash | UploadFileConnectionSha256 | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionProvider | UploadFileConnectionPublic_id | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Contactmessage | createContactmessagePayload | updateContactmessagePayload | deleteContactmessagePayload | ContactmessageConnection | ContactmessageAggregator | ContactmessageGroupBy | ContactmessageConnection_id | ContactmessageConnectionCreatedAt | ContactmessageConnectionUpdatedAt | ContactmessageConnectionEmail | ContactmessageConnectionMessage | ContactmessageConnectionName | ContactmessageConnectionWhom | ContactmessageConnectionWhere | Designproject | createDesignprojectPayload | updateDesignprojectPayload | deleteDesignprojectPayload | DesignprojectConnection | DesignprojectAggregator | DesignprojectGroupBy | DesignprojectConnection_id | DesignprojectConnectionCreatedAt | DesignprojectConnectionUpdatedAt | DesignprojectConnectionTitle | DesignprojectConnectionDescription | DesignprojectConnectionDate | DesignprojectConnectionFeatured | DesignprojectConnectionSlug | DesignprojectConnectionThumbnail | Member | createMemberPayload | updateMemberPayload | deleteMemberPayload | MemberConnection | MemberAggregator | MemberAggregatorSum | MemberAggregatorAvg | MemberAggregatorMin | MemberAggregatorMax | MemberGroupBy | MemberConnection_id | MemberConnectionCreatedAt | MemberConnectionUpdatedAt | MemberConnectionSlug | MemberConnectionName | MemberConnectionGradyear | MemberConnectionProfilepicture | MemberConnectionBio | MemberConnectionWebsite | MemberConnectionRole | MemberConnectionExec | MemberConnectionAlum | Photoproject | createPhotoprojectPayload | updatePhotoprojectPayload | deletePhotoprojectPayload | PhotoprojectConnection | PhotoprojectAggregator | PhotoprojectGroupBy | PhotoprojectConnection_id | PhotoprojectConnectionCreatedAt | PhotoprojectConnectionUpdatedAt | PhotoprojectConnectionTitle | PhotoprojectConnectionDate | PhotoprojectConnectionDescription | PhotoprojectConnectionFeatured | PhotoprojectConnectionSlug | Post | createPostPayload | updatePostPayload | deletePostPayload | PostConnection | PostAggregator | PostGroupBy | PostConnection_id | PostConnectionCreatedAt | PostConnectionUpdatedAt | PostConnectionTitle | PostConnectionBody | PostConnectionFeatured | PostConnectionAuthor | PostConnectionSlug | Testimonial | createTestimonialPayload | updateTestimonialPayload | deleteTestimonialPayload | TestimonialConnection | TestimonialAggregator | TestimonialGroupBy | TestimonialConnection_id | TestimonialConnectionCreatedAt | TestimonialConnectionUpdatedAt | TestimonialConnectionQuote | TestimonialConnectionClient | TestimonialConnectionSlug | Videoproject | createVideoprojectPayload | updateVideoprojectPayload | deleteVideoprojectPayload | VideoprojectConnection | VideoprojectAggregator | VideoprojectGroupBy | VideoprojectConnection_id | VideoprojectConnectionCreatedAt | VideoprojectConnectionUpdatedAt | VideoprojectConnectionTitle | VideoprojectConnectionDescription | VideoprojectConnectionFeatured | VideoprojectConnectionDate | VideoprojectConnectionVideoURLs | VideoprojectConnectionSlug | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileGroupBy | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionHash | UploadFileConnectionSha256 | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionProvider | UploadFileConnectionPublic_id | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole
 
 type Mutation {
   createContactmessage(input: createContactmessageInput): createContactmessagePayload
@@ -549,9 +531,6 @@ type Mutation {
   createPost(input: createPostInput): createPostPayload
   updatePost(input: updatePostInput): updatePostPayload
   deletePost(input: deletePostInput): deletePostPayload
-  createProject(input: createProjectInput): createProjectPayload
-  updateProject(input: updateProjectInput): updateProjectPayload
-  deleteProject(input: deleteProjectInput): deleteProjectPayload
   createTestimonial(input: createTestimonialInput): createTestimonialPayload
   updateTestimonial(input: updateTestimonialInput): updateTestimonialPayload
   deleteTestimonial(input: deleteTestimonialInput): deleteTestimonialPayload
@@ -739,123 +718,6 @@ input PostInput {
   slug: String
 }
 
-"""To be featured on the projects page"""
-type Project {
-  _id: ID!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  title: String
-  description: String
-  featured: Boolean
-  year: Int
-  partners: String
-  slug: String
-  pictures(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
-  videos(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
-  members(sort: String, limit: Int, start: Int, where: JSON): [Member]
-  additionalmedia(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
-}
-
-type ProjectAggregator {
-  count: Int
-  sum: ProjectAggregatorSum
-  avg: ProjectAggregatorAvg
-  min: ProjectAggregatorMin
-  max: ProjectAggregatorMax
-}
-
-type ProjectAggregatorAvg {
-  year: Float
-}
-
-type ProjectAggregatorMax {
-  year: Float
-}
-
-type ProjectAggregatorMin {
-  year: Float
-}
-
-type ProjectAggregatorSum {
-  year: Float
-}
-
-type ProjectConnection {
-  values: [Project]
-  groupBy: ProjectGroupBy
-  aggregate: ProjectAggregator
-}
-
-type ProjectConnection_id {
-  key: ID
-  connection: ProjectConnection
-}
-
-type ProjectConnectionCreatedAt {
-  key: DateTime
-  connection: ProjectConnection
-}
-
-type ProjectConnectionDescription {
-  key: String
-  connection: ProjectConnection
-}
-
-type ProjectConnectionFeatured {
-  key: Boolean
-  connection: ProjectConnection
-}
-
-type ProjectConnectionPartners {
-  key: String
-  connection: ProjectConnection
-}
-
-type ProjectConnectionSlug {
-  key: String
-  connection: ProjectConnection
-}
-
-type ProjectConnectionTitle {
-  key: String
-  connection: ProjectConnection
-}
-
-type ProjectConnectionUpdatedAt {
-  key: DateTime
-  connection: ProjectConnection
-}
-
-type ProjectConnectionYear {
-  key: Int
-  connection: ProjectConnection
-}
-
-type ProjectGroupBy {
-  _id: [ProjectConnection_id]
-  createdAt: [ProjectConnectionCreatedAt]
-  updatedAt: [ProjectConnectionUpdatedAt]
-  title: [ProjectConnectionTitle]
-  description: [ProjectConnectionDescription]
-  featured: [ProjectConnectionFeatured]
-  year: [ProjectConnectionYear]
-  partners: [ProjectConnectionPartners]
-  slug: [ProjectConnectionSlug]
-}
-
-input ProjectInput {
-  title: String
-  description: String
-  pictures: [ID]
-  videos: [ID]
-  featured: Boolean
-  year: Int
-  members: [ID]
-  additionalmedia: [ID]
-  partners: String
-  slug: String
-}
-
 type Query {
   contactmessage(id: ID!): Contactmessage
   contactmessages(sort: String, limit: Int, start: Int, where: JSON): [Contactmessage]
@@ -872,9 +734,6 @@ type Query {
   post(id: ID!): Post
   posts(sort: String, limit: Int, start: Int, where: JSON): [Post]
   postsConnection(sort: String, limit: Int, start: Int, where: JSON): PostConnection
-  project(id: ID!): Project
-  projects(sort: String, limit: Int, start: Int, where: JSON): [Project]
-  projectsConnection(sort: String, limit: Int, start: Int, where: JSON): ProjectConnection
   testimonial(id: ID!): Testimonial
   testimonials(sort: String, limit: Int, start: Int, where: JSON): [Testimonial]
   testimonialsConnection(sort: String, limit: Int, start: Int, where: JSON): TestimonialConnection
@@ -1012,15 +871,6 @@ input updatePostInput {
 
 type updatePostPayload {
   post: Post
-}
-
-input updateProjectInput {
-  where: InputID
-  data: ProjectInput
-}
-
-type updateProjectPayload {
-  project: Project
 }
 
 input updateRoleInput {

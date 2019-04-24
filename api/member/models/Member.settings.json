@@ -41,10 +41,6 @@
       "collection": "post",
       "via": "author"
     },
-    "projects": {
-      "collection": "project",
-      "via": "members"
-    },
     "role": {
       "default": "Member",
       "type": "string"
