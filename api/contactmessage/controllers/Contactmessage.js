@@ -68,6 +68,7 @@ module.exports = {
       let email = ctx.request.body.email;
       let whom = ctx.request.body.whom;
       let where = ctx.request.body.where;
+      let phone = ctx.request.body.phone;
 
       await strapi.plugins['email'].services.email.send({
         to: 'utdcometmarketing@gmail.com',
@@ -75,7 +76,7 @@ module.exports = {
         replyTo: 'no-reply@utdcometmarketing.com',
         subject: `Contact Form message from ${name}`,
         text: `From: ${email}, \n Message: ${message} \n\n Who: ${whom}\nWhere: ${where}`,
-        html: `From: ${email}, \n Message: ${message} \n\n Who: ${whom}\nWhere: ${where}`
+        html: `From: ${email}, \n Message: ${message} \n\n Phone: ${phone} \n\n Who: ${whom}\nWhere: ${where}`
       });
       return strapi.services.contactmessage.add(ctx.request.body);
     }
