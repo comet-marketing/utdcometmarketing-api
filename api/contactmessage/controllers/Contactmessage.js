@@ -75,19 +75,19 @@ module.exports = {
         from: `contactform@utdcometmarketing.com`,
         replyTo: 'no-reply@utdcometmarketing.com',
         subject: `Contact Form message from ${name}`,
-        text: `From: ${email}, \n Message: ${message} \n\n Who: ${whom}\nWhere: ${where}`,
+        text: `From: ${email}, \n Message: ${message} \n\n Phone: ${phone}\n Who: ${whom}\nWhere: ${where}`,
         html: `From: ${email}, <br> Message: ${message} <br><br> Who: ${whom}<br> Phone: ${phone} <br>Where: ${where}`
       });
 
-      let clientEmail = `Thank you so much for reaching out to us at UTD Comet Marketing! Someone will be in contact with you shortly!\n\n`
+      let clientEmail = `Thank you so much for reaching out to us at UTD Comet Marketing! Someone will be in contact with you shortly!\n\n Please do not reply to this automated email.`
 
       await strapi.plugins['email'].services.email.send({
         to: `${email}`,
         from: `no-reply@utdcometmarketing.com`,
         replyTo: 'no-reply@utdcometmarketing.com',
         subject: `Thank you for reaching out to Comet Marketing!`,
-        text: `From: ${email}, \n Message: ${message} \n\n Who: ${whom}\nWhere: ${where}`,
-        html: `Dear ${whom}, <br> We have received your email ${message} <br><br> Who: ${whom}<br>Where: ${where}`
+        text: `From: ${email}, \n Message: ${clientEmail} \n\n Who: ${whom}\nWhere: ${where}`,
+        html: `Dear ${whom}, <br> ${clientEmail} <br><br> Who: ${whom}<br>Where: ${where}`
       })
       return strapi.services.contactmessage.add(ctx.request.body);
     }
