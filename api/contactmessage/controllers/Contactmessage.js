@@ -79,16 +79,38 @@ module.exports = {
         html: `From: ${email}, <br> Message: ${message} <br><br> Who: ${whom}<br> Phone: ${phone} <br>Where: ${where}`
       });
 
-      let clientEmail = `Thank you so much for reaching out to us at UTD Comet Marketing! Someone will be in contact with you shortly!\n\n Please do not reply to this automated email.`
-
+      let clientEmail = `Thank you so much for reaching out to us at UTD Comet Marketing! Someone will be in contact with you shortly through the email you provided.`
+      let htmlSignature = `<div>
+      <table>
+        <tr>
+          <th rowspan="2">
+            <a href="https://www.utdcometmarketing.com/">
+            <img src="http://imagizer.imageshack.us/a/img924/4939/KxU5g3.png" width="500" height="100" style="border-radius: 10px">
+            </a>
+          </th>
+          <th>
+            <a href="https://www.facebook.com/UTDCometMarketing/">
+              <img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-facebook-square2-512.png" width="46" height="46" style="margin-bottom: -5px;">
+            </a>
+          </th>
+        <tr>
+          <td>
+            <a href="https://www.instagram.com/utdcometmarketing/?hl=en">
+              <img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-instagram-new-square2-512.png" width="46" height="46">
+            </a>
+          </td>
+        </tr>
+      </table>
+      </div>`
       await strapi.plugins['email'].services.email.send({
         to: `${email}`,
         from: `no-reply@utdcometmarketing.com`,
         replyTo: 'no-reply@utdcometmarketing.com',
         subject: `Thank you for reaching out to Comet Marketing!`,
-        text: `From: ${email}, \n Message: ${clientEmail} \n\n Who: ${whom}\nWhere: ${where}`,
-        html: `Dear ${whom}, <br> ${clientEmail} <br><br> Who: ${whom}<br>Where: ${where}`
+        text: `Dear ${name}, \n\n Message: ${clientEmail}`,
+        html: `Dear ${name}, <br> ${clientEmail} <br><br>Best Wishes,<br> Comet Marketing Team<br>${htmlSignature} <br><br>Please do not reply to this automated email.`
       })
+      
       return strapi.services.contactmessage.add(ctx.request.body);
     }
     else {
