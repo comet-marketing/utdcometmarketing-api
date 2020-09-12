@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.5",
-    "node-fetch": "^2.3.0",
+    "node-fetch": "^2.6.1",
     "strapi": "3.0.0-alpha.17",
     "strapi-hook-mongoose": "3.0.0-alpha.17",
     "strapi-provider-email-sendgrid": "^3.0.0-alpha.18",
