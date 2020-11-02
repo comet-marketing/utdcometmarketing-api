@@ -1,6 +1,5 @@
 {
   "_from": "strapi-plugin-upload@3.0.0-alpha.17",
-  "_id": "strapi-plugin-upload@3.0.0-alpha.17",
   "_inBundle": false,
   "_integrity": "sha512-b6YRKL0a+71eq+drJ20Ae3c7ylWJRmHNbBfmiQY22HQZdj+aM9t8aoorNNcxY4GcqtViUj3pRT8nDFU7CMC1qw==",
   "_location": "/strapi-plugin-upload",
@@ -25,7 +24,7 @@
   "author": {
     "name": "A Strapi developer"
   },
-  "bundleDependencies": false,
+  "bundleDependencies": [],
   "dependencies": {
     "strapi-provider-upload-local": "3.0.0-alpha.17",
     "stream-to-array": "^2.3.0",

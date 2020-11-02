@@ -1,6 +1,5 @@
 {
   "_from": "strapi-admin@3.0.0-alpha.17",
-  "_id": "strapi-admin@3.0.0-alpha.17",
   "_inBundle": false,
   "_integrity": "sha512-zaqmbO6T7+4gN+hytuhzY8OgX1hLMELkyd7QEVK9G9y+sgnj+gIFDPuWLoQSf/85SKsc4ncq6jzHfYQvS4NyGw==",
   "_location": "/strapi/strapi-admin",
@@ -28,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/strapi/strapi-admin/issues"
   },
-  "bundleDependencies": false,
+  "bundleDependencies": [],
   "dependencies": {
     "react-ga": "^2.4.1",
     "remove-markdown": "^0.2.2",

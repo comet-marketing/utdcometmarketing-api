@@ -1,6 +1,5 @@
 {
   "_from": "strapi-plugin-content-type-builder@3.0.0-alpha.17",
-  "_id": "strapi-plugin-content-type-builder@3.0.0-alpha.17",
   "_inBundle": false,
   "_integrity": "sha512-bmkVnfcrWP03tl3qAShiDBTP0mcNseKl7tHlFYz6P0gll+sPwVoEcOT0eccaOQmJfdYsznwCxS/Gg+qqaTeRYw==",
   "_location": "/strapi-plugin-content-type-builder",
@@ -30,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/strapi/strapi/issues"
   },
-  "bundleDependencies": false,
+  "bundleDependencies": [],
   "dependencies": {
     "immutable": "^3.8.2",
     "pluralize": "^7.0.0",

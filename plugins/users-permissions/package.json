@@ -1,6 +1,5 @@
 {
   "_from": "strapi-plugin-users-permissions@3.0.0-alpha.17",
-  "_id": "strapi-plugin-users-permissions@3.0.0-alpha.17",
   "_inBundle": false,
   "_integrity": "sha512-WZtYKthp+RNg452bIQJtlrtVrPHHyU0QbMD/ozHgWw6D58Bf5eBa+1+2hiZxdWVvmK+vDMR/e3NMSl2DHbC3+Q==",
   "_location": "/strapi-plugin-users-permissions",
@@ -30,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/strapi/strapi/issues"
   },
-  "bundleDependencies": false,
+  "bundleDependencies": [],
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "grant-koa": "^4.2.0",

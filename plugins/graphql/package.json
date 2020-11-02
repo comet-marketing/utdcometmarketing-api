@@ -1,6 +1,5 @@
 {
   "_from": "strapi-plugin-graphql@3.0.0-alpha.17",
-  "_id": "strapi-plugin-graphql@3.0.0-alpha.17",
   "_inBundle": false,
   "_integrity": "sha512-3Eg2SKXrbOwtv5EeHzUjPTnhSdn0M+yfdxTLB8w4YU+kkSFC/dNu3w+hcZi3HoTz5YD4qNE2kBZEKPMEX8WxZg==",
   "_location": "/strapi-plugin-graphql",
@@ -25,7 +24,7 @@
   "author": {
     "name": "A Strapi developer"
   },
-  "bundleDependencies": false,
+  "bundleDependencies": [],
   "dependencies": {
     "apollo-server-koa": "^2.0.7",
     "glob": "^7.1.3",

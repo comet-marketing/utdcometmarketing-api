@@ -1,6 +1,5 @@
 {
   "_from": "strapi-plugin-documentation@3.0.0-alpha.17",
-  "_id": "strapi-plugin-documentation@3.0.0-alpha.17",
   "_inBundle": false,
   "_integrity": "sha512-gp63kFOu1BsD4mHMTy2RodEadcLkrHvUFZTDi9ipUPPru6QeK3SUShzLxEsJrhlO6VY7XRgBJJfcNWt2oD7VUg==",
   "_location": "/strapi-plugin-documentation",
@@ -27,7 +26,7 @@
     "email": "hi@strapi.io",
     "url": "strapi.io"
   },
-  "bundleDependencies": false,
+  "bundleDependencies": [],
   "contributors": [
     {
       "name": "soupette"

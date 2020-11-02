@@ -1,6 +1,5 @@
 {
   "_from": "strapi-plugin-settings-manager@3.0.0-alpha.17",
-  "_id": "strapi-plugin-settings-manager@3.0.0-alpha.17",
   "_inBundle": false,
   "_integrity": "sha512-xkPpTf4myvb89TbGBmd45o6SVnpIgmGqGpY9O7Y8DuqR3Wqwery7941PifqPTqn77ljKxU4WoBY8ekuLkbVFwg==",
   "_location": "/strapi-plugin-settings-manager",
@@ -30,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/strapi/strapi/issues"
   },
-  "bundleDependencies": false,
+  "bundleDependencies": [],
   "deprecated": false,
   "description": "Strapi plugin to manage settings.",
   "devDependencies": {

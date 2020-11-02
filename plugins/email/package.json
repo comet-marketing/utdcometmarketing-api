@@ -1,6 +1,5 @@
 {
   "_from": "strapi-plugin-email@3.0.0-alpha.17",
-  "_id": "strapi-plugin-email@3.0.0-alpha.17",
   "_inBundle": false,
   "_integrity": "sha512-5BZZ0/kIhb6RuaPlQkWfyStvA+MOpwEgwGJTrd7amdQLqNFNyEq2wWqVGTCjAcVUSRS5Fl5bk35jUPONcmeiRg==",
   "_location": "/strapi-plugin-email",
@@ -30,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/strapi/strapi/issues"
   },
-  "bundleDependencies": false,
+  "bundleDependencies": [],
   "dependencies": {
     "strapi-provider-email-sendmail": "3.0.0-alpha.17"
   },
