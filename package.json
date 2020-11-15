@@ -24,7 +24,8 @@
     "strapi": "3.0.0-alpha.17",
     "strapi-hook-mongoose": "3.0.0-alpha.17",
     "strapi-provider-email-sendgrid": "^3.0.0-alpha.18",
-    "strapi-upload-aws-s3": "^3.0.0-alpha.14.5"
+    "strapi-upload-aws-s3": "^3.0.0-alpha.14.5",
+    "flatstr": "1.0.12"
   },
   "author": {
     "name": "aahladmadireddy",
