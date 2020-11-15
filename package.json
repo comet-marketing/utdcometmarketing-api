@@ -24,8 +24,7 @@
     "strapi": "3.0.0-alpha.17",
     "strapi-hook-mongoose": "3.0.0-alpha.17",
     "strapi-provider-email-sendgrid": "^3.0.0-alpha.18",
-    "strapi-upload-aws-s3": "^3.0.0-alpha.14.5",
-    "pino": "6.7.0"
+    "strapi-upload-aws-s3": "^3.0.0-alpha.14.5"
   },
   "author": {
     "name": "aahladmadireddy",
@@ -44,7 +43,7 @@
     "uuid": "757755e2-cc37-46fb-9c90-e021a44976d6"
   },
   "engines": {
-    "node": "12.x",
+    "node": "11.15.0",
     "npm": ">= 6.0.0"
   },
   "license": "MIT"

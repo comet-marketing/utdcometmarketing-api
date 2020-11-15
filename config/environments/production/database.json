@@ -4,7 +4,8 @@
     "default": {
       "connector": "mongoose",
       "settings": {
-        "uri": "${process.env.DATABASE_URI || ''}"
+        "uri": "${process.env.DATABASE_URI || ''}",
+        "database": "cmDB"
       },
       "options": {
         "ssl": true
