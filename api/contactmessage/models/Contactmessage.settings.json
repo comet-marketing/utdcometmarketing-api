@@ -22,6 +22,10 @@
       "default": "",
       "type": "string"
     },
+    "phone": {
+      "default": "",
+      "type": "string"
+    },
     "whom": {
       "default": "",
       "type": "enumeration",
