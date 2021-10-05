@@ -5,7 +5,7 @@
   "description": "A Strapi application.",
   "main": "./server.js",
   "scripts": {
-    "setup": "NODE_ENV=development cd admin && npm run setup",
+    "setup": "cd admin && npm run setup",
     "start": "node server.js",
     "strapi": "node_modules/strapi/bin/strapi.js",
     "lint": "node_modules/.bin/eslint api/**/*.js config/**/*.js plugins/**/*.js",
@@ -19,11 +19,15 @@
     "eslint-plugin-react": "^7.7.0"
   },
   "dependencies": {
+    "graphql": "^14.0.2",
+    "graphql-tools": "^3.1.1",
     "lodash": "^4.17.5",
     "node-fetch": "^2.3.0",
     "strapi": "3.0.0-alpha.17",
     "strapi-hook-mongoose": "3.0.0-alpha.17",
+    "strapi-plugin-graphql": "3.0.0-alpha.17",
     "strapi-provider-email-sendgrid": "^3.0.0-alpha.18",
+    "strapi-provider-upload-aws-s3": "^3.6.8",
     "strapi-upload-aws-s3": "^3.0.0-alpha.14.5"
   },
   "author": {
